@@ -74,7 +74,6 @@ const userPassQ = `
 const emailQ = `          
             <div id="qEmail" class="steps animated zoomIn">
                 <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
-                <!-- <h2>${getText[93]}</h2> -->
                 <h2 id="acceptTerms">${getText[91]}</h2>
                 <h2 id="womanWaiting">${getText[94]}</h2>
                 <br>  

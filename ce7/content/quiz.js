@@ -16,12 +16,12 @@ const quiz = `
                 ${physiqueLookQ}
                 ${heightQ}
                 ${redirectStep} 
-                ${userPassQ}
-                ${ageQ}
-                ${emailQ}
-                ${thanksQ}
+                <!-- ${userPassQ} -->
+                <!-- ${ageQ} -->
+                <!-- ${emailQ} -->
+                <!-- ${thanksQ} -->
                 <!-- ${regStepQ} -->
-                ${finalQ}
+                <!-- ${finalQ} -->
 
                 <div id="stepDots"></div>
                 <div id="stepBtns">
