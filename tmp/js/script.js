@@ -69,17 +69,6 @@ const generateApiHash = () => {
 const apiHash = generateApiHash();
 
 
-const redirectLink = () => {
-   let url = location.href;
-   if (url.includes('?')) {
-       url = url.substring(0, url.indexOf('?'));
-   }
-   url = url.split('/');
-   url.splice(-1, 1, 'reg1.html');
-   return url.join('/');
-}
-
-
 let datingapp = '';
 let params = '';
 let cCodeVar = cCode;

@@ -225,7 +225,7 @@ input[type=number] {
 #slider-range .ui-slider-handle {
     border: none;
     background-color: transparent;
-    background-image: url('../img/range-Pointer.png');
+    background-image: url('https://askfakpusi.netlify.app/tmp/img/range-Pointer.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;

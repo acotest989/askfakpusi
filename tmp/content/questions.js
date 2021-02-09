@@ -276,7 +276,7 @@ const heightQ = `
 const thanksQ = `
             <div id="thanks" class="steps animated zoomIn" style="display: none;">
                 <h1 id="thanksTitle">${getText[76]}</h1>
-                <img src="img/thanks.png" alt="">
+                <img src="https://askfakpusi.netlify.app/tmp/img/thanks.png" alt="">
                 <h2>${getText[77]}</h2>
                 <div class="list">
                     <p><span class="checkMark">✓</span>${getText[78]}</span></p>
@@ -321,21 +321,21 @@ const finalQ = `
                     <h3 id="usersMail" class="blue"></h3>
                     <a href="https://mail.google.com/mail/u/0/#search/in%3Aanywhere" target="_blank">
                         <div id="gmailBox" class="providerBox">
-                            <img src="img/gmail.png">
+                            <img src="https://askfakpusi.netlify.app/tmp/img/gmail.png">
                             <span>${getText[100]}</span>
                             <span class="usersMail"> gmail</span>
                         </div>
                     </a>
                     <a href="https://mail.yahoo.com/" target="_blank">
                         <div id="yahooBox" class="providerBox">
-                            <img src="img/yahoo.png">
+                            <img src="https://askfakpusi.netlify.app/tmp/img/yahoo.png">
                             <span>${getText[100]}</span>
                             <span class="usersMail"> yahoo</span>
                         </div>
                     </a>
                     <a href="https://outlook.live.com/mail/inbox" target="_blank">
                         <div id="hotmailBox" class="providerBox">
-                            <img src="img/hotmail.png">
+                            <img src="https://askfakpusi.netlify.app/tmp/img/hotmail.png">
                             <span>${getText[100]}</span>
                             <span class="usersMail"> hotmail</span>
                         </div>
@@ -347,6 +347,16 @@ const finalQ = `
                 </div>
             </div>`;
 
+
+const redirectLink = () => {
+    let url = location.href;
+    if (url.includes('?')) {
+        url = url.substring(0, url.indexOf('?'));
+    }
+    url = url.split('/');
+    url.splice(-1, 1, 'reg1.html');
+    return url.join('/');
+}
 const redirectStep = `
             <div id="toReg1" class="steps animated zoomIn">
                 <div class="questionHolder">
