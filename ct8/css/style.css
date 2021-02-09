@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: #00b4eb;
+    font-weight: bold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#quizBox {
+    height: auto;
+    width: 320px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+}
+
+#quizBox .wrap {
+    margin: auto;
+}
+
+#qGender .radio {
+    background: #aeaeae;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    display: inline;
+}
+
+#quizBox #genderMale,
+#quizBox #lookingMale {
+    padding-left: 20px;
+    padding-right: 21px;
+}
+
+#quizBox .activemale {
+    background: #00b4eb;
+}
+
+#quizBox .activefemale {
+    background: #e22b4c;
+}
+
+.blue {
+    color: #00b4eb;
+}
+
+.pink {
+    color: #e22b4c;
+}
+
+#qGender .questionHolder {
+    margin: 40px auto;
+}
+
+#qGender .questionText {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#qAgeRange .questionText,
+#qUserPass .questionText,
+#qAgeEmail .questionText,
+#qCity .questionText {
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+}
+
+* .questionText {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.steps:not(:first-child) {
+    display: none;
+}
+
+.steps input[type=text],
+.steps input[type=password],
+.steps input[type=number],
+.steps input[type=email],
+.steps select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    height: 43px;
+}
+
+#thanksTitle {
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.error {
+    border: 1px solid red !important;
+}
+
+.error::-webkit-input-placeholder {
+    color: red !important;
+}
+
+.errorMsg {
+    color: red;
+    display: none;
+    margin: 5px auto;
+}
+
+#stepDots {
+    display: inline-flex;
+    align-items: center;
+    margin: 20px auto 0px;
+}
+
+#stepDots .dots {
+    width: 5px;
+    height: 5px;
+    background: #c8c8c8;
+    margin: 5px 1px 20px;
+    border-radius: 50%;
+}
+
+#stepDots .activeDot {
+    background: #e22b4c;
+    width: 7px;
+    height: 7px;
+}
+
+#stepBtns {
+    margin-bottom: 20px;
+}
+
+#stepBtns button {
+    padding: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+#nextStep {
+    background: #62d182;
+}
+
+#nextStep:hover {
+    background: #3bc563;
+}
+
+#stepBack {
+    background: #c8c8c8;
+}
+
+#stepBack:hover {
+    background: #aeaeae;
+}
+
+#slider-range {
+    margin-top: 25px;
+    border: none;
+}
+
+.selectRange2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.formFields {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    margin: 10px auto 60px;
+}
+
+.formFields input {
+    max-width: 43px;
+    margin-left: 10px 0;
+    text-align: center;
+}
+
+.formFields label {
+    margin-right: 10px;
+}
+
+.formFields span {
+    margin: 10px;
+}
+
+.ui-widget.ui-widget-content,
+.ui-slider-horizontal .ui-slider-range {
+    background: #e22b4c;
+    height: 2px;
+}
+
+#slider-range .ui-slider-handle {
+    border: none;
+    background-color: transparent;
+    background-image: url('../img/range-Pointer.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    color: #fff;
+    margin-top: -35px;
+    font-size: 15px;
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+#slider-range>span:nth-child(2),
+#slider-range>span:nth-child(3) {
+    transition: 0.2s;
+}
+
+#slider-range>span:nth-child(3) {
+    transform: translate(-60%, 0%);
+}
+
+.field.selectRange {
+    width: 100%;
+}
+
+.radio {
+    display: block;
+    text-align: left;
+    padding: 5px 10px;
+    background: #00b4eb;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.radio:hover {
+    background: #e22b4c;
+}
+
+.radio span {
+    color: #fff;
+    font-size: 14px;
+}
+
+.radio input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checked {
+    background: #e22b4c;
+    transition: 0.5s;
+}
+
+.checked::before {
+    content: '✓';
+    color: #fff;
+    font-weight: bold;
+    background: #3bc563;
+    border: 1px solid #fff;
+    padding: 1px 4px;
+}
+
+#termsCheck {
+    position: relative;
+}
+
+.checkbox {
+    color: #fff;
+    background: #eee;
+    border: 1px solid #ccc;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -5px;
+    top: -1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.checkbox:hover {
+    background: #ddd;
+}
+
+#termsCheck input:checked~.checkbox {
+    background: #3bc563;
+    border: none;
+}
+
+#termsCheck input:checked~.checkbox:after {
+    font-weight: bold;
+    content: '✓';
+    position: relative;
+    top: -2px;
+}
+
+.condition {
+    color: red;
+    transition: 0.2s;
+    display: block;
+}
+
+#okBtn,
+#regBtn,
+#redirectBtn,
+#agree,
+#redirectBtn {
+    padding: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    background: #62d182;
+    font-size: 18px;
+}
+
+#agree {
+    display: block;
+    width: auto;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 10px auto 0;
+    background: #3bc563;
+}
+
+#agree:hover,
+#okBtn:hover,
+#regBtn:hover,
+#redirectBtn:hover {
+    background: #3bc563;
+}
+
+.list {
+    text-align: left;
+    font-size: 14px;
+}
+
+.list p {
+    margin-left: 20px;
+}
+
+.checkMark {
+    content: '✓';
+    color: #3bc563;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 5px;
+    margin-left: -20px;
+}
+
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#spinner {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+}
+
+.providerBox {
+    background: #00b4eb;
+    margin: 5px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.providerBox span {
+    color: #fff;
+    margin-right: 6px;
+}
+
+.providerBox img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+#progressBar {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #aeaeae;
+}
+
+#percentage {
+    background: #62d182;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+    text-align: right;
+}
+
+#cookieOverlay {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#cookieOverlay  p {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+#termsLink,
+#privacyLink {
+    color: #00b4eb;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 2;
+}
+
+#tos,
+#tos iframe {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+#closeTos {
+    color: #fff;
+    background: #555;
+    padding: 0px 6px;
+    border-radius: 100px;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 999;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animated {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+}
