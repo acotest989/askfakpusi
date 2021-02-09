@@ -60,6 +60,26 @@ const skinColorError = $('#qSkinColor .errorMsg');
 const physiqueLookError = $('#qPhysiqueLook .errorMsg');
 
 
+const generateApiHash = () => {
+   const d = new Date();
+   const currentDate = [d.getFullYear(), (d.getMonth() + 1), d.getDate()].join('-') + 'UTC';
+   const timestamp = Date.parse(currentDate);
+   return md5('FUKSTERIX_API_HASH_' + timestamp.toString());
+}
+const apiHash = generateApiHash();
+
+
+const redirectLink = () => {
+   let url = location.href;
+   if (url.includes('?')) {
+       url = url.substring(0, url.indexOf('?'));
+   }
+   url = url.split('/');
+   url.splice(-1, 1, 'reg1.html');
+   return url.join('/');
+}
+
+
 let datingapp = '';
 let params = '';
 let cCodeVar = cCode;
@@ -391,7 +411,6 @@ function checkUser() {
          'username': userName,
       },
       success: function (res) {
-         console.log(res);
          if (res) {
             user.removeClass('error');
             userData.username = user.val();
