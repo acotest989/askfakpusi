@@ -356,7 +356,7 @@ const redirectLink = () => {
     url.splice(-1, 1, 'reg1.html');
     return url.join('/');
 }
-const redirectStep = `
+const redirectStep = redirection ? `
             <div id="toReg1" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <h1>Thank You.<h1>
@@ -368,4 +368,4 @@ const redirectStep = `
                 <a href="${redirectLink()}">
                     <button id="redirectBtn">Next 〉<button>
                 </a>
-            </div>`;
+            </div>` : '';

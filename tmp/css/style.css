@@ -11,6 +11,23 @@
     outline: none;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 a {
     text-decoration: none;
     color: #00b4eb;
@@ -528,4 +545,68 @@ input[type=number] {
 
 .zoomIn {
     animation-name: zoomIn;
+}
+
+div#terms_container,
+div#privacy_container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #00000050;
+    z-index: 99;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms_container_inner,
+.privacy_container_inner {
+    background: #fff;
+    max-width: 1000px;
+    width: 95%;
+    height: 95%;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+}
+
+.terms_container_content,
+.privacy_container_content {
+    padding: 20px;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.terms_container_content ul,
+.terms_container_content ol,
+.privacy_container_content ul,
+.privacy_container_content ol {
+    padding-left: 20px;
+}
+
+.terms_container_content h1,
+.terms_container_content h2,
+.terms_container_content h3,
+.terms_container_content h4,
+.privacy_container_content h1,
+.privacy_container_content h2,
+.privacy_container_content h3,
+.privacy_container_content h4 {
+    margin: 20px auto 5px;
+}
+
+.popup-terms-close-button,
+.popup-privacy-close-button {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }

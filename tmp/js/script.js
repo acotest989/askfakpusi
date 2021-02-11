@@ -17,7 +17,7 @@ let userData = {
    skinColor: '',
    physiqueLook: '',
    height: '',
-   regUrl: '',
+   datingApp: '',
    pageId: pageId,
 };
 
@@ -36,7 +36,7 @@ const rangeMin = $('#rangeMin');
 const rangeMax = $('#rangeMax');
 const age = $('#age');
 const email = $('#email');
-const allCities = { HR: ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Dubrovnik", "Varaždin", "Šibenik", "Velika Gorica", "Vinkovci", "Vukovar", "Bjelovar", "Đakovo", "Požega", "Čakovec", "Knin", "Virovitica", "Metković", "Rovinj", "Makarska"], HU: ["Kaposvár", "Miskolc", "Debrecen", "Székesfehérvár", "Szeged", "Kecskemét", "Szekszárd", "Zalaegerszeg", "Nyíregyháza", "Budapest", "Győr", "Pécs", "Gödölló", "Szombathely", "Baja", "Szolnok", "Tatabánya", "Érd", "Veszprém", "Békéscsaba"], CZ: ["Liberec", "Plzeň", "Ostrava", "Praha", "Pardubice", "Olomouc", "Hradec Králové", "Havířov", "Kladno", "Zlín", "Brno", "Most", "Opava", "Frýdek-Místek", "Karviná", "Jihlava", "Děčín", "Teplice", "Karlovy Vary", "Chomutov"], SK: ["Nitra", "Bratislava", "Banská Bystrica", "Prešov", "Michalovce", "Trnava", "Poprad", "Prievidza", "Trenčín", "Žilina", "Košice", "Zvolen", "Považská Bystrica", "Nové Zámky", "Humenné", "Levice", "Komárno", "Bardejov", "Lučenec", "Čadca"], RS: ["Valjevo", "Novi Sad", "Jagodina", "Lajkovac", "Čačak", "Zaječar", "Kragujevac", "Niš", "Subotica", "Beograd", "Kraljevo", "Vranje", "Gornji Milanovac", "Kruševac", "Leskovac", "Loznica", "Novi Pazar", "Pančevo", "Smederevo", "Užice"], RO: ["Brașov", "Timișoara", "Galați", "Cluj-Napoca", "Oradea", "Brăila", "Ploiești", "Bacău", "Iași", "București", "Craiova", "Constanța", "Arad", "Pitești", "Sibiu", "Buzău", "Botoșani", "Satu Mare", "Suceava", "Focșani"], PT: ["Almada", "Serpa", "Braga", "Amadora", "Rio Tinto", "Coimbra", "Ponta Delgada", "Abrantes", "Guimarães", "Maia", "Vila Nova de Gaia", "Mêda", "Porto", "Funchal", "Odivelas", "Setúbal", "Queluz", "Barreiro", "Aveiro", "Viseu"], FI: ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti", "Kuopio", "Kouvola", "Pori", "Joensuu", "Lappeenranta", "Hämeenlinna", "Vaasa", "Rovaniemi", "Seinäjoki", "Mikkeli", "Kotka", "Salo"], EE: ["Kuressaare", "Tartu", "Maardu", "Haapsalu", "Kisumu", "Kohtla-Järve", "Sillamäe", "Rapla", "Pärnu", "Viljandi", "Narva", "Tallinn", "Võru", "Valga", "Jõhvi", "Keila", "Tapa", "Türi", "Paide", "Põlva"], LT: ["Klaipėda", "Vilnius", "Kaunas", "Panevėžys", "Telšiai", "Šiauliai", "Šilutė", "Alytus", "Marijampolė", "Jonava", "Rokiškis", "Utena", "Kėdainiai", "Tauragė", "Ukmergė", "Visaginas", "Plungė", "Kretinga", "Radviliškis", "Palanga"], LV: ["Valmiera", "Liepāja", "Jelgava", "Jūrmala", "Jēkabpils", "Ventspils", "Daugavpils", "Rēzekne", "Talsi", "Tukums", "Rīga", "Dobele", "Salaspils", "Cēsis", "Ogre", "Kuldīga", "Olaine", "Saldus", "Sigulda", "Talsi"], GR: ["Λάρισα", "Πειραιάς", "Πάτρα", "Ηράκλειο", "Αθήνα", "Βόλος", "Πύργος", "Θεσσαλονίκη", "Κρήτη", "Ιωάννινα", "Καλαμάτα", "Δράμα", "Χανιά", "Τρίκαλα", "Κομοτηνή", "Χαλκίδα", "Αλεξανδρούπολη", "Ξάνθη", "Κατερίνη", "Αγρίνιο"], BG: ["Стара Загора", "София", "Пазарджик", "Пловдив", "Перник", "Добрич", "Русе", "Сливен", "Видин", "Варна", "Плевен", "Бургас", "Шумен", "Хасково", "Ямбол", "Пазарджик", "Благоевград", "Велико Търново", "Враца", "Габрово"], SI: ["Bled", "Maribor", "Koper", "Brežice", "Kranj", "Velenje", "Sežana", "Novo mesto", "Vrhnika", "Ljubljana", "Celje", "Laško", "Ptuj", "Trbovlje", "Kamnik", "Jesenice", "Nova Gorica", "Domžale", "Škofja Loka", "Izola"] };
+const allCities = { HR: ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Dubrovnik", "Varaždin", "Šibenik", "Velika Gorica", "Vinkovci", "Vukovar", "Bjelovar", "Đakovo", "Požega", "Čakovec", "Knin", "Virovitica", "Metković", "Rovinj", "Makarska"], HU: ["Kaposvár", "Miskolc", "Debrecen", "Székesfehérvár", "Szeged", "Kecskemét", "Szekszárd", "Zalaegerszeg", "Nyíregyháza", "Budapest", "Győr", "Pécs", "Gödölló", "Szombathely", "Baja", "Szolnok", "Tatabánya", "Érd", "Veszprém", "Békéscsaba"], CZ: ["Liberec", "Plzeň", "Ostrava", "Praha", "Pardubice", "Olomouc", "Hradec Králové", "Havířov", "Kladno", "Zlín", "Brno", "Most", "Opava", "Frýdek-Místek", "Karviná", "Jihlava", "Děčín", "Teplice", "Karlovy Vary", "Chomutov"], SK: ["Nitra", "Bratislava", "Banská Bystrica", "Prešov", "Michalovce", "Trnava", "Poprad", "Prievidza", "Trenčín", "Žilina", "Košice", "Zvolen", "Považská Bystrica", "Nové Zámky", "Humenné", "Levice", "Komárno", "Bardejov", "Lučenec", "Čadca"], RS: ["Valjevo", "Novi Sad", "Jagodina", "Lajkovac", "Čačak", "Zaječar", "Kragujevac", "Niš", "Subotica", "Beograd", "Kraljevo", "Vranje", "Gornji Milanovac", "Kruševac", "Leskovac", "Loznica", "Novi Pazar", "Pančevo", "Smederevo", "Užice"], RO: ["Brașov", "Timișoara", "Galați", "Cluj-Napoca", "Oradea", "Brăila", "Ploiești", "Bacău", "Iași", "București", "Craiova", "Constanța", "Arad", "Pitești", "Sibiu", "Buzău", "Botoșani", "Satu Mare", "Suceava", "Focșani"], PT: ["Almada", "Serpa", "Braga", "Amadora", "Rio Tinto", "Coimbra", "Ponta Delgada", "Abrantes", "Guimarães", "Maia", "Vila Nova de Gaia", "Mêda", "Porto", "Funchal", "Odivelas", "Setúbal", "Queluz", "Barreiro", "Aveiro", "Viseu"], FI: ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti", "Kuopio", "Kouvola", "Pori", "Joensuu", "Lappeenranta", "Hämeenlinna", "Vaasa", "Rovaniemi", "Seinäjoki", "Mikkeli", "Kotka", "Salo"], EE: ["Kuressaare", "Tartu", "Maardu", "Haapsalu", "Kisumu", "Kohtla-Järve", "Sillamäe", "Rapla", "Pärnu", "Viljandi", "Narva", "Tallinn", "Võru", "Valga", "Jõhvi", "Keila", "Tapa", "Türi", "Paide", "Põlva"], LT: ["Klaipėda", "Vilnius", "Kaunas", "Panevėžys", "Telšiai", "Šiauliai", "Šilutė", "Alytus", "Marijampolė", "Jonava", "Rokiškis", "Utena", "Kėdainiai", "Tauragė", "Ukmergė", "Visaginas", "Plungė", "Kretinga", "Radviliškis", "Palanga"], LV: ["Valmiera", "Liepāja", "Jelgava", "Jūrmala", "Jēkabpils", "Ventspils", "Daugavpils", "Rēzekne", "Talsi", "Tukums", "Rīga", "Dobele", "Salaspils", "Cēsis", "Ogre", "Kuldīga", "Olaine", "Saldus", "Sigulda", "Talsi"], GR: ["Λάρισα", "Πειραιάς", "Πάτρα", "Ηράκλειο", "Αθήνα", "Βόλος", "Πύργος", "Θεσσαλονίκη", "Κρήτη", "Ιωάννινα", "Καλαμάτα", "Δράμα", "Χανιά", "Τρίκαλα", "Κομοτηνή", "Χαλκίδα", "Αλεξανδρούπολη", "Ξάνθη", "Κατερίνη", "Αγρίνιο"], BG: ["Стара Загора", "София", "Пазарджик", "Пловдив", "Перник", "Добрич", "Русе", "Сливен", "Видин", "Варна", "Плевен", "Бургас", "Шумен", "Хасково", "Ямбол", "Пазарджик", "Благоевград", "Велико Търново", "Враца", "Габрово"], SI: ["Bled", "Maribor", "Koper", "Brežice", "Kranj", "Velenje", "Sežana", "Novo mesto", "Vrhnika", "Ljubljana", "Celje", "Laško", "Ptuj", "Trbovlje", "Kamnik", "Jesenice", "Nova Gorica", "Domžale", "Škofja Loka", "Izola"], EN: ["London", "Los Angeles",] };
 const city = $('#city');
 const relationShip = $('input[name=relationShip]');
 const eyesColor = $('input[name=eyesColor]');
@@ -59,6 +59,8 @@ const hairColorError = $('#qHairColor .errorMsg');
 const skinColorError = $('#qSkinColor .errorMsg');
 const physiqueLookError = $('#qPhysiqueLook .errorMsg');
 
+let regRoute = redirection ? '/reg1' : '/register-user-presell';
+
 
 const generateApiHash = () => {
    const d = new Date();
@@ -69,21 +71,21 @@ const generateApiHash = () => {
 const apiHash = generateApiHash();
 
 
-let datingapp = '';
 let params = '';
-let cCodeVar = cCode;
-datingAppFetch = "https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php";
+const datingAppFetch = "https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php";
 
 function fetchingURL(data) {
     let fetchedURL = data;
     fetchedURL = fetchedURL.substring(0, fetchedURL.indexOf('?'));
-
-    datingapp = fetchedURL;
+    datingApp = fetchedURL;
+    userData.datingApp = datingApp;
+    saveToLS();
     params = data.split('?').pop();
 }
 
+
 document.addEventListener('click', function() {
-    if (datingapp === '') {
+    if (flow && datingApp === 'https://dev.mojtajnisastanak.com') {
         fetch(datingAppFetch, {
                 method: 'GET',
                 mode: 'cors',
@@ -93,16 +95,6 @@ document.addEventListener('click', function() {
             .then(data => fetchingURL(data));
     }
 });
-
-
-let regUrl = null;
-document.onclick = () => {
-   if (datingapp !== '' && userData.regUrl === '') {
-      regUrl = userData.regUrl = datingapp;
-      saveToLS();
-   }
-   regUrl = userData.regUrl; 
-}
 
 
 function showBtns() {
@@ -209,6 +201,7 @@ function moveSteps() {
 
          showElems();
          saveToLS();
+         toReg1();
       }
    });
    $(document).on('click', '#stepBack', function () {
@@ -392,7 +385,7 @@ function checkUser() {
    $.ajax({
       async: false,
       type: 'post',
-      url: regUrl + '/check-username',
+      url: datingApp + '/check-username',
       headers: {},
       data: {
          'apikey': apiKey,
@@ -526,7 +519,7 @@ function checkIfEmailExists() {
    $.ajax({
       async: false,
       type: 'post',
-      url: regUrl + '/check-email',
+      url: datingApp + '/check-email',
       headers: {},
       data: {
          'apikey': apiKey,
@@ -559,7 +552,7 @@ function checkIfEmailExists() {
 
 function sendData() {	
    loader.fadeIn(200);	
-   data = {	
+   !redirection ? data = {	
       about: "",	
       age: Number(userData.age),	
       aged: (3)[3, 4, 5],	
@@ -584,15 +577,34 @@ function sendData() {
       userpass: userData.password,	
       validmail: 1,	
       weigh: null,	
-   }	
+   }:
+   data = {
+      apikey: apiKey,
+      apihash: apiHash,
+      action: 'REGISTER',
+      regtype: 1,
+      email: userData.email,
+      password: null,
+      userRegType: 0,
+      validmail: 1,
+      l_hash_ccp1004: null,
+      _tid: null,
+      _uid: null,
+      _params: null,
+      fixEmail: 1,
+   }
    userData.gender === 'male' ? data.sex = 1 : data.sex = 2;	
    userData.lookingFor === 'male' ? data.lookingfor = 1 : data.lookingfor = 2;	
    $.ajax({	
       type: 'post',	
-      url: regUrl + '/register-user-presell',	
+      url: datingApp + regRoute,	
       headers: {},	
       data: data,	
       success: function (res) {	
+         if (redirection) {
+            window.location.href = datingApp + '?loginid=' + res;
+            return;
+         }
          if (res[0] === "SUCCESS") {	
             i++;	
             finalStep();	
@@ -601,7 +613,7 @@ function sendData() {
             loader.fadeOut(200);	
             // rapid conversion
             // if(window._cI) $('body').append(_cI(1, '', true));
-            window.location.href = regUrl + '/?loginid=' + res[1] + '&_&nmr=1';	
+            window.location.href = datingApp + '/?loginid=' + res[1] + '&_&nmr=1';	
          } else if (res[0] === "SUCCESSES") {	
             i++;	
             finalStep();	
@@ -914,30 +926,42 @@ for (let i = 0; i < array.length; i++) {
 }
 
 
-const tos = $('#tos');
-const closeTos = $('#closeTos');
-const termsOfUse = $('#termsOfUse');
-const privacy = $('#privacy');
-
-closeTos.click(function () {
-   tos.fadeOut();
-   termsOfUse.fadeOut();
-   privacy.fadeOut();
-});
+// TOS show/hide
 $(document).on('click', '#termsLink, #privacyLink', function (e) {
-   if (e.target.id === 'termsLink') termsOfUse.attr('src', userData.regUrl + '/terms');
-   if (e.target.id === 'privacyLink') privacy.attr('src', userData.regUrl + '/privacy');
-   tos.fadeIn();
-   let tosLink = $(this).data('link');
-   $(tosLink).fadeIn();
+   if (e.target.id === 'termsLink') {
+      $('body').append(getTermsContent);
+      $('#terms_container').css('display', 'flex').hide().fadeIn(300);
+   }
+   if (e.target.id === 'privacyLink') {
+      $('body').append(getPrivacyContent);
+      $('#privacy_container').css('display', 'flex').hide().fadeIn(300);
+   }
+   $('.domain').text(datingApp.substring(8));
+});
+
+$(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button', function (e) {
+   if (e.target.className === 'popup-terms-close-button') {
+      $('#terms_container').fadeOut(300);
+      setTimeout(() => {
+         $('#terms_container').remove();
+      }, 500);
+   }
+   if (e.target.className === 'popup-privacy-close-button') {
+      $('#privacy_container').fadeOut(300);
+      setTimeout(() => {
+         $('#privacy_container').remove();
+      }, 500);
+   }
 });
 
 
 // if redirection step is visible
-if($('#toReg1').is(':visible')) {
-   $('#stepDots, #stepBtns').remove()
+function toReg1() {
+   if($('#toReg1').is(':visible')) {
+      $('#stepDots, #stepBtns').remove()
+   }
 }
-
+toReg1();
 
 // custom steps moving
 function moveCustomSteps() {

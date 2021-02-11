@@ -6,7 +6,7 @@ const quiz = `
 
             <div class="wrap">
 
-                <!-- ${redirectStep} -->
+                ${redirectStep}
                 ${genderQ}
                 ${ageRangeQ}
                 ${cityQ}

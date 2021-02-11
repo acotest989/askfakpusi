@@ -119,6 +119,7 @@ if (localStr !== null) {
             finalStep();
 
             hideTitle();
+            toReg1();
         }
         loadSteps();
     }
