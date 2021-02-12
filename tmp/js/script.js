@@ -71,7 +71,16 @@ const generateApiHash = () => {
 const apiHash = generateApiHash();
 
 
-let params = '';
+const getParams = (key) => {
+   let params = location.search.substring(1);
+   if (!params) return;
+   let json = '{"' + params.replace(/&/g, '","').replace(/=/g, '":"') + '"}';
+   let decodedJson = decodeURIComponent(json);
+   let obj = JSON.parse(decodedJson);
+   return key !== undefined ? obj[key] : obj;
+}
+
+
 const datingAppFetch = "https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php";
 
 function fetchingURL(data) {
@@ -577,6 +586,7 @@ function sendData() {
       userpass: userData.password,	
       validmail: 1,	
       weigh: null,	
+      source: getParams('utm_source'),
    }:
    data = {
       apikey: apiKey,
@@ -592,6 +602,7 @@ function sendData() {
       _uid: null,
       _params: null,
       fixEmail: 1,
+      source: getParams('utm_source'),
    }
    userData.gender === 'male' ? data.sex = 1 : data.sex = 2;	
    userData.lookingFor === 'male' ? data.lookingfor = 1 : data.lookingfor = 2;	
@@ -969,4 +980,6 @@ function moveCustomSteps() {
       return i++;
    }
 }
+
+
 

@@ -6,7 +6,7 @@ const quiz = `
 
             <div class="wrap">
 
-                <!-- ${redirectStep} -->
+                ${redirectStep}
                 ${genderQ}
                 ${ageRangeQ}
                 ${cityQ}
@@ -20,7 +20,7 @@ const quiz = `
                 ${ageQ}
                 ${emailQ}
                 ${thanksQ}
-                <!-- ${regStepQ} -->
+                ${regStepQ}
                 ${finalQ}
 
                 <div id="stepDots"></div>
@@ -39,10 +39,12 @@ const quiz = `
         <iframe src="" id="privacy" style="display: none;"></iframe>
     </div>
     
-    <div id="cookieOverlay">
-        <p>${getText[103]} <br> ${getText[104]}</p>
-        <button id="agree">${getText[105]}</button>
-    </div>
+    ${cookieOverlay ? 
+        `<div id="cookieOverlay">
+            <p>${getText[103]} <br> ${getText[104]}</p>
+            <button id="agree">${getText[105]}</button>
+        </div>`
+    : ''}
     
     <div id="progressBar">
         <div id="progress">

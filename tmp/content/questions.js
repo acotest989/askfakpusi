@@ -1,4 +1,4 @@
-const genderQ = `
+const genderQ = use_genderQ ? `
             <div id="qGender" class="steps animated zoomIn">
                 <div class="iAm questionHolder">
                     <label for="gender" class="questionText">${getText[5]}</label>
@@ -22,8 +22,8 @@ const genderQ = `
                         ${getText[6]}
                     </label>
                 </div>
-            </div>`;
-const ageRangeQ = `
+            </div>` : '';
+const ageRangeQ = use_ageRangeQ ? `
             <div id="qAgeRange" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label class="questionText" for="">${getText[32]}</label>
@@ -42,8 +42,8 @@ const ageRangeQ = `
                         <div id="slider-range"></div>
                     </div>
                 </div>
-            </div>`;
-const ageRange2Q = `
+            </div>` : '';
+const ageRange2Q = use_ageRange2Q ? `
             <div id="qAgeRange" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label class="questionText" for="">${getText[32]}</label>
@@ -59,8 +59,8 @@ const ageRange2Q = `
                     </div>
                     <br>
                 </div>
-            </div>`;
-const userPassQ = `
+            </div>` : '';
+const userPassQ = use_userPassQ ? `
             <div id="qUserPass" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="username" class="questionText">${getText[12]}</label>
@@ -70,8 +70,8 @@ const userPassQ = `
                     <label for="password" class="questionText">${getText[14]}</label>
                     <input type="password" name="password" id="password" placeholder="${getText[15]}">
                 </div>
-            </div>`;
-const emailQ = `          
+            </div>` : '';
+const emailQ = use_emailQ ? `          
             <div id="qEmail" class="steps animated zoomIn">
                 <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
                 <h2 id="acceptTerms">${getText[91]}</h2>
@@ -90,8 +90,8 @@ const emailQ = `
                 <small class="condition">${getText[89]}</small>
                 <br>  
                 <button id="regBtn">${getText[90]}</button>
-            </div>`;
-const ageQ = `
+            </div>` : '';
+const ageQ = use_ageQ ? `
             <div id="qAge" class="steps animated zoomIn">
                 <div id="qAge" class="questionHolder">
                     <label for="age" class="questionText">${getText[16]}</label>
@@ -99,8 +99,8 @@ const ageQ = `
                         <option value="">${getText[24]}</option>
                     </select>
                 </div>
-            </div>`;
-const cityQ = `
+            </div>` : '';
+const cityQ = use_cityQ ? `
             <div id="qCity" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="city" class="questionText">${getText[36]}</label>
@@ -108,8 +108,8 @@ const cityQ = `
                         <option value="">${getText[24]}</option>
                     </select>
                 </div>
-            </div>`;
-const relationShipQ = `
+            </div>` : '';
+const relationShipQ = use_relationShipQ ? `
             <div id="qRelationShip" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[38]}</label>
@@ -142,8 +142,8 @@ const relationShipQ = `
                         </label>
                     </div>
                 </div>
-            </div>`;
-const eyesColorQ = `
+            </div>` : '';
+const eyesColorQ = use_eyesColorQ ? `
             <div id="qEyesColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[46]}</label>
@@ -168,8 +168,8 @@ const eyesColorQ = `
                         </label>
                     </div>
                 </div>
-            </div>`;
-const hairColorQ = `
+            </div>` : '';
+const hairColorQ = use_hairColorQ ? `
             <div id="qHairColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[52]}</label>
@@ -206,8 +206,8 @@ const hairColorQ = `
                         </label>
                     </div>
                 </div>
-            </div>`;
-const skinColorQ = `
+            </div>` : '';
+const skinColorQ = use_skinColorQ ? `
             <div id="qSkinColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[61]}</label>
@@ -232,8 +232,8 @@ const skinColorQ = `
                         </label>
                     </div>
                 </div>
-            </div>`;
-const physiqueLookQ = `
+            </div>` : '';
+const physiqueLookQ = use_physiqueLookQ ? `
             <div id="qPhysiqueLook" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[67]}</label>
@@ -262,8 +262,8 @@ const physiqueLookQ = `
                         </label>
                     </div>
                 </div>
-            </div>`;
-const heightQ = `
+            </div>` : '';
+const heightQ = use_heightQ ? `
             <div id="qHeight" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="height" class="questionText">${getText[74]}</label>
@@ -271,8 +271,8 @@ const heightQ = `
                         <option value="">${getText[24]}</option>
                     </select>
                 </div>
-            </div>`;
-const thanksQ = `
+            </div>` : '';
+const thanksQ = use_thanksQ ? `
             <div id="thanks" class="steps animated zoomIn" style="display: none;">
                 <h1 id="thanksTitle">${getText[76]}</h1>
                 <img src="https://askfakpusi.netlify.app/tmp/img/thanks.png" alt="">
@@ -287,8 +287,8 @@ const thanksQ = `
                 </div>
                 <br>
                 <button id="okBtn">${getText[102]}</button>
-            </div>`;
-const regStepQ = `
+            </div>` : '';
+const regStepQ = use_regStepQ ? `
             <div id="regStep" class="steps animated zoomIn" style="display: none;">
                 <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
                 <h2 style="display: none;">${getText[93]}</h2>
@@ -303,8 +303,8 @@ const regStepQ = `
                 <small class="condition">${getText[89]}</small>
                 <br>  
                 <button id="regBtn">${getText[90]}</button>
-            </div>`;
-const finalQ = `
+            </div>` : '';
+const finalQ = use_finalQ ? `
             <div id="final" class="steps animated zoomIn" style="display: none;">
                 <div id="soi" style="display: none;">
                     <h2><span class="onlineUsers"></span> ${getText[92]}</h2>
@@ -344,7 +344,7 @@ const finalQ = `
                 <div id="reg1" style="display: none">
                     <h3>${getText[106]}</h3>
                 </div>
-            </div>`;
+            </div>` : '';
 
 
 const redirectLink = () => {
@@ -369,3 +369,23 @@ const redirectStep = redirection ? `
                     <button id="redirectBtn">Next 〉<button>
                 </a>
             </div>` : '';
+
+
+const allQ = [
+    redirectStep,
+    genderQ,
+    ageRangeQ,
+    cityQ,
+    relationShipQ,
+    eyesColorQ,
+    hairColorQ,
+    skinColorQ,
+    physiqueLookQ,
+    heightQ,
+    userPassQ,
+    ageQ,
+    emailQ,
+    thanksQ,
+    regStepQ,
+    finalQ,
+];
