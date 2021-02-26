@@ -1,4 +1,5 @@
 const userType              = 'soi';
+const contentType           = 'adult'; // familySafe
 const apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
 let datingApp               = 'https://dev.mojtajnisastanak.com';
 let regRoute                = '/reg1';
