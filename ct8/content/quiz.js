@@ -6,7 +6,6 @@ const quiz = `
 
             <div class="wrap">
 
-                ${redirectStep}
                 ${genderQ}
                 ${ageRangeQ}
                 ${cityQ}
@@ -18,9 +17,9 @@ const quiz = `
                 ${heightQ}
                 ${userPassQ}
                 ${ageQ}
+                ${redirectStep}
                 ${emailQ}
                 ${thanksQ}
-                ${regStepQ}
                 ${finalQ}
 
                 <div id="stepDots"></div>

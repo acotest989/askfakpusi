@@ -20,7 +20,6 @@ const quiz = `
                 ${ageQ}
                 ${emailQ}
                 ${thanksQ}
-                ${regStepQ}
                 ${finalQ}
 
                 <div id="stepDots"></div>
