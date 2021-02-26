@@ -21,6 +21,19 @@ let userData = {
    pageId: pageId,
 };
 
+function setLS() {
+   localStorage.setItem(pageId, JSON.stringify(userData));
+}
+function readLS(key) {
+   let value = localStorage.getItem(key);
+   data = JSON.parse(value);
+   return data;
+}
+function updateLS(key, value) {
+   localStorage.setItem(key, JSON.stringify(value));
+}
+let LSdata = readLS(pageId);
+
 let i = 0;
 const stepBtns = $('#stepBtns');
 const next = $("#nextStep");
@@ -62,7 +75,7 @@ const physiqueLookError = $('#qPhysiqueLook .errorMsg');
 let regRoute = redirection ? '/reg1' : '/register-user-presell';
 
 
-const generateApiHash = () => {
+function generateApiHash() {
    const d = new Date();
    const currentDate = [d.getFullYear(), (d.getMonth() + 1), d.getDate()].join('-') + 'UTC';
    const timestamp = Date.parse(currentDate);
@@ -71,8 +84,11 @@ const generateApiHash = () => {
 const apiHash = generateApiHash();
 
 
-const getParams = (key) => {
+function getParams(key, url) {
    let params = location.search.substring(1);
+   if (url !== undefined) {
+      params = url.split('?').pop();
+   }
    if (!params) return;
    let json = '{"' + params.replace(/&/g, '","').replace(/=/g, '":"') + '"}';
    let decodedJson = decodeURIComponent(json);
@@ -81,28 +97,38 @@ const getParams = (key) => {
 }
 
 
+function getSource() {
+   const sources = {
+      mstorm: 'mailstorm',
+      yamads: 'yamads',
+      kukuriku: 'rapidtrack',
+      rdtrk: 'rapidtrack',
+      adwords: 'adwords',
+   }
+   let key = getParams('utm_source') || getParams('traffic_source');
+   let source = sources[key];
+   return source;
+}
+
 const datingAppFetch = "https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php";
 
 function fetchingURL(data) {
-    let fetchedURL = data;
-    fetchedURL = fetchedURL.substring(0, fetchedURL.indexOf('?'));
-    datingApp = fetchedURL;
-    userData.datingApp = datingApp;
-    saveToLS();
-    params = data.split('?').pop();
+   let fetchedURL = data;
+   fetchedURL = fetchedURL.substring(0, fetchedURL.indexOf('?'));
+   datingApp = fetchedURL;
+   userData.datingApp = datingApp;
+   userData.source = getSource();
+   LSdata = userData;
+   updateLS(pageId, LSdata);
 }
 
 
 document.addEventListener('click', function() {
-    if (flow && datingApp === 'https://dev.mojtajnisastanak.com') {
-        fetch(datingAppFetch, {
-                method: 'GET',
-                mode: 'cors',
-                cache: 'no-cache'
-            })
-            .then(response => response.text())
-            .then(data => fetchingURL(data));
-    }
+   if (flow && datingApp === 'https://dev.mojtajnisastanak.com' && LSdata === null) {
+      $.get(datingAppFetch, function (data) {
+         fetchingURL(data);
+      });
+   }
 });
 
 
@@ -114,7 +140,7 @@ function showBtns() {
 
 function renderDots() {
    // let dotsCount = steps.length;
-   let dotsCount = steps.length - 3;
+   let dotsCount = redirection ? steps.length - 1 : steps.length - 3;
    for (let count = 0; count < dotsCount; count++) {
       stepDots.append(dotEl);
    }
@@ -127,22 +153,16 @@ function showDots() {
    dots.removeClass('activeDot');
    $(dots[i]).addClass('activeDot');
    if (i >= steps.length - 3) {
-      stepBtns.hide();
-      stepDots.hide();
+      if (!redirection) {
+         stepBtns.hide();
+         stepDots.hide();
+      }
    } else {
       stepBtns.show();
       stepDots.show();
    }
 }
 showDots();
-
-
-function showSteps() {
-   steps.hide();
-   $(steps[i]).show();
-   userData.step = 'step' + (i + 1);
-   userData.question = $('.steps:visible').attr('id');
-}
 
 
 function hideTitle() {
@@ -154,11 +174,21 @@ function hideTitle() {
 } hideTitle();
 
 
+function showSteps() {
+   steps.hide();
+   $(steps[i]).show();
+   hideTitle();
+   // userData.step = 'step' + (i + 1);
+   // userData.question = $('.steps:visible').attr('id');
+   LSdata.step = 'step' + (i + 1);
+   LSdata.question = $('.steps:visible').attr('id');
+}
+
+
 function progressBar() {
    const progress = $('#progress');
    const percentage = $('#percentage');
-   const allSteps = steps.length;
-   let currentStep = userData.step.substring(4) - 1;
+   let currentStep = LSdata === null ? userData.step.substring(4) - 1 : LSdata.step.substring(4) - 1;
    let width = (100 / dots.length) * currentStep;
    progress.css('width', width + '%');
    progress.css('transition', '0.5s');
@@ -170,15 +200,23 @@ progressBar();
 
 
 function cookieAgree() {
-   const cookieOverlay = $('#cookieOverlay');
-   $(document).on('click', '#agree', function () {
-      $('#cookieOverlay').fadeOut(200);
+   if (LSdata === null) {
       userData.agree = true;
-      saveToLS();
-   });
-   userData.agree ? cookieOverlay.hide() : cookieOverlay.show();
+      setLS();
+      $('#cookieOverlay').fadeOut(200);
+   }
+   if (LSdata !== null && LSdata.agree === undefined) {
+      LSdata.agree = true;
+      updateLS(pageId, LSdata);
+      $('#cookieOverlay').fadeOut(200);
+   }
 }
-cookieAgree();
+if (LSdata !== null && LSdata.agree === true) {
+   $('#cookieOverlay').hide();
+}
+$(document).on('click', '#agree', function () {
+   cookieAgree();
+});
 
 
 function showElems() {
@@ -209,7 +247,8 @@ function moveSteps() {
          moveCustomSteps();
 
          showElems();
-         saveToLS();
+         // setLS();
+         updateLS(pageId, LSdata);
          toReg1();
       }
    });
@@ -217,7 +256,8 @@ function moveSteps() {
       if (i > 0) {
          i--;
          showElems();
-         saveToLS();
+         // setLS();
+         updateLS(pageId, LSdata);
       }
    });
 }
@@ -236,6 +276,10 @@ function pickGender() {
          }
          userData.gender = $('input[name=gender]:checked').val();
          userData.lookingFor = $('input[name=lookingFor]:checked').val();
+         if (LSdata !== null) {
+            LSdata.gender = $('input[name=gender]:checked').val();
+            LSdata.lookingFor = $('input[name=lookingFor]:checked').val();
+         }
       });
       i = 1;
       return i;
@@ -348,6 +392,7 @@ function pickAgeRange() {
          rangeMax.removeClass('error');
          rangeError.hide().text('');
          userData.ageRange = rangeMin.val() + ' - ' + rangeMax.val();
+         LSdata.ageRange = rangeMin.val() + ' - ' + rangeMax.val();
          return i++;
       }
    }
@@ -369,19 +414,20 @@ function delay(callback, ms) {
 function validateUser() {
    let qUserPass = $('#qUserPass').is(':visible');
    if (qUserPass) {
-      if (user.val() === '') {
+      let userVal = user.val();
+      if (userVal === '') {
          user.attr('placeholder', enterName)
             .addClass('error');
-      } else if (user.val().length < 5) {
+      } else if (userVal.length < 5) {
          user.val('')
             .attr('placeholder', minChar)
             .addClass('error');
-      } else if (user.val().length > 15) {
+      } else if (userVal.length > 15) {
          user.val('')
             .attr('placeholder', maxChar)
             .addClass('error');
       } else {
-         return true;
+         checkUser();
       }
    }
 }
@@ -390,7 +436,6 @@ function validateUser() {
 function checkUser() {
    loader.fadeIn(200);
    let userName = user.val();
-   let bool = false;
    $.ajax({
       async: false,
       type: 'post',
@@ -403,23 +448,22 @@ function checkUser() {
       },
       success: function (res) {
          if (res) {
-            user.removeClass('error');
+            user.removeClass('error');``
             userData.username = user.val();
+            LSdata.username = user.val();
             loader.fadeOut(200);
-            bool = true;
+            i++
          } else {
             user.val('')
                .attr('placeholder', userExists)
                .addClass('error');
             loader.fadeOut(200);
-            bool = false;
          }
       },
-      error: function () {
-         console.log('An error occurred, please try again!');
+      error: function (err) {
+         console.log('An error:' + err + ' occurred, please try again!');
       }
    });
-   return bool;
 }
 
 
@@ -446,9 +490,7 @@ function validatePass() {
       } else {
          pass.removeClass('error');
          userData.password = pass.val();
-         if (validateUser() && checkUser()) {
-            return i++;
-         }
+         LSdata.password = pass.val();
       }
    }
 }
@@ -481,183 +523,184 @@ function validateAge() {
 }
 
 
-function checkEmail() {
-   loader.fadeIn(200);
-   const regx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-   let emailVal = email.val();
-   let res = regx.test(emailVal);
-   if (res) {
-      validateMyEmail();
-   } else {
-      email.val('')
-         .attr('placeholder', enterValidEmail)
-         .addClass('error');
-      loader.fadeOut(200);
-   }
-   return res;
-}
+// function checkEmail() {
+//    loader.fadeIn(200);
+//    const regx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//    let emailVal = email.val();
+//    let res = regx.test(emailVal);
+//    if (res) {
+//       validateMyEmail();
+//    } else {
+//       email.val('')
+//          .attr('placeholder', enterValidEmail)
+//          .addClass('error');
+//       loader.fadeOut(200);
+//    }
+//    return res;
+// }
 
 
-function validateMyEmail() {
-   loader.fadeIn(200);
-   let bool = false;
-   let url = 'https://validatemy.email/validate.php?s=xnMvus2zxvPgSG2YRQmwa3sK&e=' + email.val();
-   $.ajaxSetup({
-      async: false
-   });
-   $.getJSON(url, function (data) {
-      if (data.email === 'valid' && data.provider === 'valid') {
-         checkIfEmailExists();
-         bool = true;
-      } else {
-         email.val('')
-            .attr('placeholder', emailNotValid)
-            .addClass('error');
-         loader.fadeOut(200);
-         bool = false;
-      }
-   });
-   return bool;
-}
+// function validateMyEmail() {
+//    loader.fadeIn(200);
+//    let bool = false;
+//    let url = 'https://validatemy.email/validate.php?s=xnMvus2zxvPgSG2YRQmwa3sK&e=' + email.val();
+//    $.ajaxSetup({
+//       async: false
+//    });
+//    $.getJSON(url, function (data) {
+//       if (data.email === 'valid' && data.provider === 'valid') {
+//          checkIfEmailExists();
+//          bool = true;
+//       } else {
+//          email.val('')
+//             .attr('placeholder', emailNotValid)
+//             .addClass('error');
+//          loader.fadeOut(200);
+//          bool = false;
+//       }
+//    });
+//    return bool;
+// }
 
 
-function checkIfEmailExists() {
-   loader.fadeIn(200);
-   let emailVal = email.val();
-   let bool = false;
-   $.ajax({
-      async: false,
-      type: 'post',
-      url: datingApp + '/check-email',
-      headers: {},
-      data: {
-         'apikey': apiKey,
-         'apihash': apiHash,
-         'email': emailVal,
-      },
-      success: function (res) {
-         if (res) {
-            userData.email = email.val();
-            email.removeClass('error');
-            loader.fadeOut(200);
-            bool = true;
-            // i++;
-            register();
-         } else {
-            email.val('')
-               .attr('placeholder', emailExists)
-               .addClass('error');
-            loader.fadeOut(200);
-            bool = false;
-         }
-      },
-      error: function () {
-         console.log('An error occurred, please try again!');
-      }
-   });
-   return bool;
-}
+// function checkIfEmailExists() {
+//    loader.fadeIn(200);
+//    let emailVal = email.val();
+//    let bool = false;
+//    $.ajax({
+//       async: false,
+//       type: 'post',
+//       url: datingApp + '/check-email',
+//       headers: {},
+//       data: {
+//          'apikey': apiKey,
+//          'apihash': apiHash,
+//          'email': emailVal,
+//       },
+//       success: function (res) {
+//          if (res) {
+//             userData.email = email.val();
+//             LSdata.email = email.val();
+//             email.removeClass('error');
+//             loader.fadeOut(200);
+//             bool = true;
+//             // i++;
+//             register();
+//          } else {
+//             email.val('')
+//                .attr('placeholder', emailExists)
+//                .addClass('error');
+//             loader.fadeOut(200);
+//             bool = false;
+//          }
+//       },
+//       error: function () {
+//          console.log('An error occurred, please try again!');
+//       }
+//    });
+//    return bool;
+// }
 
 
-function sendData() {	
-   loader.fadeIn(200);	
-   !redirection ? data = {	
-      about: "",	
-      age: Number(userData.age),	
-      aged: (3)[3, 4, 5],	
-      apihash: apiHash,	
-      apikey: apiKey,	
-      city: userData.city,	
-      credits: null,	
-      email: userData.email,	
-      eyes: 5202,	
-      forwhat: null,	
-      hair: 5401,	
-      height: 5503,	
-      lookingfor: userData.lookingFor,	
-      mobilephone: "",	
-      physic: 5902,	
-      presell_value: 0,	
-      relationship: 6751,	
-      sex: userData.gender,	
-      skintone: 6302,	
-      user_type: userType,	
-      username: userData.username,	
-      userpass: userData.password,	
-      validmail: 1,	
-      weigh: null,	
-      source: getParams('utm_source'),
-   }:
-   data = {
-      apikey: apiKey,
-      apihash: apiHash,
-      action: 'REGISTER',
-      regtype: 1,
-      email: userData.email,
-      password: null,
-      userRegType: 0,
-      validmail: 1,
-      l_hash_ccp1004: null,
-      _tid: null,
-      _uid: null,
-      _params: null,
-      fixEmail: 1,
-      source: getParams('utm_source'),
-   }
-   userData.gender === 'male' ? data.sex = 1 : data.sex = 2;	
-   userData.lookingFor === 'male' ? data.lookingfor = 1 : data.lookingfor = 2;	
-   $.ajax({	
-      type: 'post',	
-      url: datingApp + regRoute,	
-      headers: {},	
-      data: data,	
-      success: function (res) {	
-         if (redirection) {
-            window.location.href = datingApp + '?loginid=' + res;
-            return;
-         }
-         if (res[0] === "SUCCESS") {	
-            i++;	
-            finalStep();	
-            showSteps();	
-            saveToLS();	
-            loader.fadeOut(200);	
-            // rapid conversion
-            // if(window._cI) $('body').append(_cI(1, '', true));
-            window.location.href = datingApp + '/?loginid=' + res[1] + '&_&nmr=1';	
-         } else if (res[0] === "SUCCESSES") {	
-            i++;	
-            finalStep();	
-            showSteps();	
-            saveToLS();	
-            loader.fadeOut(200);	
-         } else if (res[0] === "INVALID EMAIL") {	
-            console.log('Email već postoji!');	
-         }	
-      },	
-      error: function () {	
-         console.log('An error occurred, please try again!');	
-      }	
-   });
-} 
+// function sendData() {	
+//    loader.fadeIn(200);	
+//    !redirection ? data = {	
+//       about: "",	
+//       age: Number(userData.age),	
+//       aged: (3)[3, 4, 5],	
+//       apihash: apiHash,	
+//       apikey: apiKey,	
+//       city: userData.city,	
+//       credits: null,	
+//       email: userData.email,	
+//       eyes: 5202,	
+//       forwhat: null,	
+//       hair: 5401,	
+//       height: 5503,	
+//       lookingfor: userData.lookingFor,	
+//       mobilephone: "",	
+//       physic: 5902,	
+//       presell_value: 0,	
+//       relationship: 6751,	
+//       sex: userData.gender,	
+//       skintone: 6302,	
+//       user_type: userType,	
+//       username: userData.username,	
+//       userpass: userData.password,	
+//       validmail: 1,	
+//       weigh: null,	
+//       source: getParams('utm_source'),
+//    }:
+//    data = {
+//       apikey: apiKey,
+//       apihash: apiHash,
+//       action: 'REGISTER',
+//       regtype: 1,
+//       email: userData.email,
+//       password: null,
+//       userRegType: 0,
+//       validmail: 1,
+//       l_hash_ccp1004: null,
+//       _tid: null,
+//       _uid: null,
+//       _params: null,
+//       fixEmail: 1,
+//       source: getParams('utm_source'),
+//    }
+//    userData.gender === 'male' ? data.sex = 1 : data.sex = 2;	
+//    userData.lookingFor === 'male' ? data.lookingfor = 1 : data.lookingfor = 2;	
+//    $.ajax({	
+//       type: 'post',	
+//       url: datingApp + regRoute,	
+//       headers: {},	
+//       data: data,	
+//       success: function (res) {	
+//          if (redirection) {
+//             window.location.href = datingApp + '?loginid=' + res;
+//             return;
+//          }
+//          if (res[0] === "SUCCESS") {	
+//             i++;	
+//             finalStep();	
+//             showSteps();	
+//             setLS();	
+//             loader.fadeOut(200);	
+//             // rapid conversion
+//             // if(window._cI) $('body').append(_cI(1, '', true));
+//             window.location.href = datingApp + '/?loginid=' + res[1] + '&_&nmr=1';	
+//          } else if (res[0] === "SUCCESSES") {	
+//             i++;	
+//             finalStep();	
+//             showSteps();	
+//             setLS();	
+//             loader.fadeOut(200);	
+//          } else if (res[0] === "INVALID EMAIL") {	
+//             console.log('Email već postoji!');	
+//          }	
+//       },	
+//       error: function () {	
+//          console.log('An error occurred, please try again!');	
+//       }	
+//    });
+// } 
 
 
-function validateEmail() {
-   loader.fadeIn(200);
-   let qAgeEmail = $('#qEmail').is(':visible');
-   if (qAgeEmail) {
-      stepDots.hide();
-      stepBtns.hide();
-      if (email.val() === '') {
-         email.attr('placeholder', enterEmail)
-            .addClass('error');
-            loader.fadeOut(200);
-      } else {
-         loader.fadeIn(200);
-         checkEmail();
-      }
-   }
-}
+// function validateEmail() {
+//    loader.fadeIn(200);
+//    let qAgeEmail = $('#qEmail').is(':visible');
+//    if (qAgeEmail) {
+//       stepDots.hide();
+//       stepBtns.hide();
+//       if (email.val() === '') {
+//          email.attr('placeholder', enterEmail)
+//             .addClass('error');
+//             loader.fadeOut(200);
+//       } else {
+//          // loader.fadeIn(200);
+//          // checkEmail();
+//       }
+//    }
+// }
 
 
 function getCities() {
@@ -678,6 +721,7 @@ function validateCity() {
          $('#city > option:nth-child(1)').text(pickCity);
       } else {
          userData.city = city.val();
+         LSdata.city = city.val();
          $(this).removeClass('error');
          return i++;
       }
@@ -693,6 +737,7 @@ function relationShipStatus() {
 
       let rlsStatus = $('input[name=relationShip]:checked').val();
       userData.relationShip = rlsStatus;
+      LSdata.relationShip = rlsStatus;
       $('#qRelationShip .radio').removeClass('error');
       relShipError.hide();
    });
@@ -723,6 +768,7 @@ function eyesColors() {
 
       let eyesColor = $('input[name=eyesColor]:checked').val();
       userData.eyesColor = eyesColor;
+      LSdata.eyesColor = eyesColor;
       $('#qEyesColor .radio').removeClass('error');
       eyesColorError.hide();
    });
@@ -753,6 +799,7 @@ function hairColors() {
 
       let hairColor = $('input[name="hairColor"]:checked').val();
       userData.hairColor = hairColor;
+      LSdata.hairColor = hairColor;
       $('#qHairColor .radio').removeClass('error');
       hairColorError.hide();
    });
@@ -783,6 +830,7 @@ function skinColors() {
 
       let skinColor = $('input[name=skinColor]:checked').val();
       userData.skinColor = skinColor;
+      LSdata.skinColor = skinColor;
       $('#qSkinColor .radio').removeClass('error');
       skinColorError.hide();
    });
@@ -813,6 +861,7 @@ function physique() {
 
       let physiqueLook = $('input[name=physiqueLook]:checked').val();
       userData.physiqueLook = physiqueLook;
+      LSdata.physiqueLook = physiqueLook;
       $('#qPhysiqueLook .radio').removeClass('error');
       physiqueLookError.hide();
    });
@@ -853,6 +902,7 @@ function validateHeight() {
          $('#height > option:nth-child(1)').text(pickHeight);
       } else {
          userData.height = height.val();
+         LSdata.height = height.val();
          $(this).removeClass('error');
          return i++;
       };
@@ -864,7 +914,8 @@ function thanksStep() {
    if (thanks.is(':visible')) {
       i++;
       showSteps();
-      saveToLS();
+      // setLS();
+      updateLS(pageId, LSdata);
    }
 }
 okBtn.click(thanksStep);
@@ -890,17 +941,17 @@ function checkTerms() {
 terms.change(checkTerms);
 
 
-function register() {
-   if (checkTerms()) {
-      loader.fadeIn(200);
-      sendData();
-   } else {
-      $('#termsCheck .checkbox').addClass('error');
-      $('.condition').css('font-weight', 'bold');
-   }
-}
+// function register() {
+//    if (checkTerms()) {
+//       loader.fadeIn(200);
+//       sendData();
+//    } else {
+//       $('#termsCheck .checkbox').addClass('error');
+//       $('.condition').css('font-weight', 'bold');
+//    }
+// }
 // regBtn.click(register);
-regBtn.click(validateEmail);
+// regBtn.click(validateEmail);
 
 
 function finalStep() {
@@ -928,7 +979,7 @@ function resetInputs() {
 resetInputs();
 
 
-const array = [city, relationShip, eyesColor, hairColor, skinColor, physiqueLook, height];
+const array = [city, relationShip, eyesColor, hairColor, skinColor, physiqueLook, height, age];
 for (let i = 0; i < array.length; i++) {
    const q = array[i];
    q.change(function () {
@@ -966,10 +1017,29 @@ $(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button'
 });
 
 
+// create redirection link with email param
+function redirectLink() {
+   let url = location.href;
+   if (url.includes('?')) {
+      url = url.substring(0, url.indexOf('?'));
+   }
+   url = url.split('/');
+   url.splice(-1, 1, 'reg1.html');
+   url = url.join('/');
+   var email = getParams('eml');
+   if (email !== undefined) {
+      url = url + '?eml=' + email;
+   }
+   return url;
+}
+
+
 // if redirection step is visible
 function toReg1() {
+   let url = redirectLink();
    if($('#toReg1').is(':visible')) {
-      $('#stepDots, #stepBtns').remove()
+      $('#stepDots, #stepBtns').remove();
+      $('#toReg1 a').attr('href', url);
    }
 }
 toReg1();

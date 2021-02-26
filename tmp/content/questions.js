@@ -49,10 +49,10 @@ const ageRange2Q = use_ageRange2Q ? `
                     <label class="questionText" for="">${getText[32]}</label>
                     <br>
                     <small class="errorMsg"></small>
+                    <label class="questionText">${getText[33]}</label>
                     <div class="selectRange2">
-                        <label>${getText[33]}</label>
                         <select id="rangeMin" name="valueMin"></select>
-                        <span>&</span>
+                        <span class="questionText">&</span>
                         <select id="rangeMax" name="valueMax">
                             <option value="45" selected>45</option>
                         </select>
@@ -60,7 +60,7 @@ const ageRange2Q = use_ageRange2Q ? `
                     <br>
                 </div>
             </div>` : '';
-const userPassQ = use_userPassQ ? `
+const userPassQ = use_userPassQ && !redirection ? `
             <div id="qUserPass" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="username" class="questionText">${getText[12]}</label>
@@ -71,7 +71,7 @@ const userPassQ = use_userPassQ ? `
                     <input type="password" name="password" id="password" placeholder="${getText[15]}">
                 </div>
             </div>` : '';
-const emailQ = use_emailQ ? `          
+const emailQ = use_emailQ && !redirection ? `          
             <div id="qEmail" class="steps animated zoomIn">
                 <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
                 <h2 id="acceptTerms">${getText[91]}</h2>
@@ -272,7 +272,7 @@ const heightQ = use_heightQ ? `
                     </select>
                 </div>
             </div>` : '';
-const thanksQ = use_thanksQ ? `
+const thanksQ = use_thanksQ && !redirection ? `
             <div id="thanks" class="steps animated zoomIn" style="display: none;">
                 <h1 id="thanksTitle">${getText[76]}</h1>
                 <img src="https://askfakpusi.netlify.app/tmp/img/thanks.png" alt="">
@@ -304,13 +304,13 @@ const regStepQ = use_regStepQ ? `
                 <br>  
                 <button id="regBtn">${getText[90]}</button>
             </div>` : '';
-const finalQ = use_finalQ ? `
+const finalQ = use_finalQ && !redirection ? `
             <div id="final" class="steps animated zoomIn" style="display: none;">
                 <div id="soi" style="display: none;">
                     <h2><span class="onlineUsers"></span> ${getText[92]}</h2>
                     <h2>${getText[94]}</h2>
                     <br>
-                    <button id="redirectBtn" onclick="location.replace(userData.regUrl)">${getText[95]}</button>
+                    <button id="redirectBtn">${getText[95]}</button>
                 </div>
                 <div id="doi" style="display: none">
                     <h2>${getText[96]}!</h2>
@@ -346,16 +346,6 @@ const finalQ = use_finalQ ? `
                 </div>
             </div>` : '';
 
-
-const redirectLink = () => {
-    let url = location.href;
-    if (url.includes('?')) {
-        url = url.substring(0, url.indexOf('?'));
-    }
-    url = url.split('/');
-    url.splice(-1, 1, 'reg1.html');
-    return url.join('/');
-}
 const redirectStep = redirection ? `
             <div id="toReg1" class="steps animated zoomIn">
                 <div class="questionHolder">
@@ -365,7 +355,7 @@ const redirectStep = redirection ? `
                     <h3>Click "Next" to complete the registration.</h3>
                 </div>
                 <br>
-                <a href="${redirectLink()}">
+                <a href="">
                     <button id="redirectBtn">Next 〉<button>
                 </a>
             </div>` : '';

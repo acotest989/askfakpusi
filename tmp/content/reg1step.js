@@ -24,6 +24,16 @@ const reg1 = `
                     <br>  
                     <button id="regBtn">${getText[90]}</button>
                 </div>
+                <div id="final" class="steps animated zoomIn" style="display: none;">
+                    <div id="soi" style="display: none;">
+                        <h2><span class="onlineUsers"></span> ${getText[92]}</h2>
+                        <h2>${getText[94]}</h2>
+                        <br>
+                        <a href="${datingApp}" id="redirectBtn">${getText[95]}</a>
+                        <br>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

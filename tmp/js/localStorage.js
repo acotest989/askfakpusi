@@ -1,22 +1,10 @@
-function saveToLS() {
-    localStorage.setItem(pageId, JSON.stringify(userData));
-}
+if (LSdata !== null) {
 
-
-function readLS(name) {
-    let data = localStorage.getItem(name);
-    data = JSON.parse(data);
-    return data;
-}
-let localStr = readLS(pageId);
-
-if (localStr !== null) {
-
-    if (localStr.pageId === pageId) {
+    if (LSdata.pageId === pageId) {
 
         function loadGenders() {
-            let checkedGender = localStr.gender;
-            let checkedLookingFor = localStr.lookingFor;
+            let checkedGender = LSdata.gender;
+            let checkedLookingFor = LSdata.lookingFor;
             $('#qGender .radio').removeClass('checked activemale activefemale');
             $('.iAm input[value="' + checkedGender + '"]').prop('checked', true)
                 .parent().addClass('checked active' + checkedGender);
@@ -25,18 +13,18 @@ if (localStr !== null) {
         }
 
         function loadUserAndPass() {
-            user.val(localStr.username);
-            pass.val(localStr.password);
+            user.val(LSdata.username);
+            pass.val(LSdata.password);
         }
 
         function loadAgeAndEmail() {
-            age.val(localStr.age);
-            email.val(localStr.email);
+            age.val(LSdata.age);
+            email.val(LSdata.email);
         }
 
         function loadAgeRange() {
-            let loadedMin = Number(localStr.ageRange.slice(0, 2));
-            let loadedMax = Number(localStr.ageRange.slice(-2));
+            let loadedMin = Number(LSdata.ageRange.slice(0, 2));
+            let loadedMax = Number(LSdata.ageRange.slice(-2));
             rangeMin.val(loadedMin);
             rangeMax.val(loadedMax);
             $("#slider-range").slider({
@@ -47,41 +35,41 @@ if (localStr !== null) {
         }
 
         function loadCity() {
-            city.val(localStr.city);
+            city.val(LSdata.city);
         }
 
         function loadReladtionShip() {
-            let checkedVal = localStr.relationShip;
+            let checkedVal = LSdata.relationShip;
             $('input[value="' + checkedVal + '"]').prop('checked', true)
                 .parent().addClass('checked');
         }
 
         function loadEyesColor() {
-            let checkedVal = localStr.eyesColor;
+            let checkedVal = LSdata.eyesColor;
             $('#qEyesColor input[value="' + checkedVal + '"]').prop('checked', true)
                 .parent().addClass('checked');
         }
 
         function loadHairColor() {
-            let checkedVal = localStr.hairColor;
+            let checkedVal = LSdata.hairColor;
             $('#qHairColor input[value="' + checkedVal + '"]').prop('checked', true)
                 .parent().addClass('checked');
         }
 
         function loadSkinColor() {
-            let checkedVal = localStr.skinColor;
+            let checkedVal = LSdata.skinColor;
             $('#qSkinColor input[value="' + checkedVal + '"]').prop('checked', true)
                 .parent().addClass('checked');
         }
 
         function loadPhysiqueLook() {
-            let checkedVal = localStr.physiqueLook;
+            let checkedVal = LSdata.physiqueLook;
             $('#qPhysiqueLook input[value="' + checkedVal + '"]').prop('checked', true)
                 .parent().addClass('checked');
         }
 
         function loadHeight() {
-            height.val(localStr.height);
+            height.val(LSdata.height);
         }
 
         function loadThanks() {
@@ -95,14 +83,13 @@ if (localStr !== null) {
         }
 
         function loadSteps() {
-            let currentStep = localStr.step;
+            let currentStep = LSdata.step;
             i = currentStep.substring(4) - 1;
 
             showBtns(i);
             showDots(i);
             showSteps(i);
             progressBar();
-            cookieAgree();
 
             loadGenders();
             loadUserAndPass();

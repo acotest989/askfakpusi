@@ -6,9 +6,9 @@ const quiz = `
 
             <div class="wrap">
 
-                ${redirectStep}
                 ${genderQ}
                 ${ageRangeQ}
+                ${ageRange2Q}
                 ${cityQ}
                 ${relationShipQ}
                 ${eyesColorQ}
@@ -18,6 +18,7 @@ const quiz = `
                 ${heightQ}
                 ${userPassQ}
                 ${ageQ}
+                ${redirectStep}
                 ${emailQ}
                 ${thanksQ}
                 ${regStepQ}
@@ -39,7 +40,7 @@ const quiz = `
         <iframe src="" id="privacy" style="display: none;"></iframe>
     </div>
     
-    ${cookieOverlay ? 
+    ${cookieBar ? 
         `<div id="cookieOverlay">
             <p>${getText[103]} <br> ${getText[104]}</p>
             <button id="agree">${getText[105]}</button>
