@@ -68,7 +68,7 @@ if (detector.init() !== undefined) {
     data.detection = detector.init()
 }
 function sendData() {
-    var url = datingApp + '/reg1';
+    var url = LSdata.datingApp + regRoute;
     data.email = email.val();
     LSdata.email = email.val();
     updateLS(pageId, LSdata);
@@ -108,14 +108,14 @@ function sendData() {
             finalStep();	
             showSteps();	
             updateLS(pageId, LSdata);
-            window.location.href = datingApp + '/bcs24entlz91faxi052gh/' + email.val();
+            window.location.href = LSdata.datingApp + '/bcs24entlz91faxi052gh/' + email.val();
         } else {
             i++;
             finalStep();	
             showSteps();	
             updateLS(pageId, LSdata);
             updateLS('l_hash_ccp1004', res);
-            window.location.href = datingApp + '?loginid=' + res;
+            window.location.href = LSdata.datingApp + '?loginid=' + res;
         }   
     });   
 }
@@ -129,5 +129,5 @@ regBtn.click(function () {
 $('#redirectBtn').click(function () {
     loader.fadeIn(200);
     // sendData();
-    location.href = datingApp;
+    location.href = LSdata.datingApp;
 });

@@ -27,11 +27,6 @@ if (LSdata !== null) {
             let loadedMax = Number(LSdata.ageRange.slice(-2));
             rangeMin.val(loadedMin);
             rangeMax.val(loadedMax);
-            $("#slider-range").slider({
-                values: [loadedMin, loadedMax]
-            })
-            $('#slider-range > span:nth-child(2)').text(loadedMin);
-            $('#slider-range > span:nth-child(3)').text(loadedMax);
         }
 
         function loadCity() {

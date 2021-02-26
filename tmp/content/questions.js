@@ -29,26 +29,6 @@ const ageRangeQ = use_ageRangeQ ? `
                     <label class="questionText" for="">${getText[32]}</label>
                     <br>
                     <small class="errorMsg"></small>
-                    <div class="field selectRange">
-                        <div class="h">
-                            <div class="formFields">
-                                <label>${getText[33]}</label>
-                                <input id="rangeMin" type="number" name="valueMin" value="18">
-                                <span>&</span>
-                                <input id="rangeMax" type="number" name="valueMax" value="45">
-                                <br>
-                            </div>
-                        </div>
-                        <div id="slider-range"></div>
-                    </div>
-                </div>
-            </div>` : '';
-const ageRange2Q = use_ageRange2Q ? `
-            <div id="qAgeRange" class="steps animated zoomIn">
-                <div class="questionHolder">
-                    <label class="questionText" for="">${getText[32]}</label>
-                    <br>
-                    <small class="errorMsg"></small>
                     <label class="questionText">${getText[33]}</label>
                     <div class="selectRange2">
                         <select id="rangeMin" name="valueMin"></select>
@@ -288,22 +268,6 @@ const thanksQ = use_thanksQ && !redirection ? `
                 <br>
                 <button id="okBtn">${getText[102]}</button>
             </div>` : '';
-const regStepQ = use_regStepQ ? `
-            <div id="regStep" class="steps animated zoomIn" style="display: none;">
-                <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
-                <h2 style="display: none;">${getText[93]}</h2>
-                <h2 id="acceptTerms">${getText[91]}</h2>
-                <h2 id="womanWaiting">${getText[94]}</h2>
-                <br>  
-                <label for="terms" id="termsCheck">
-                    <input type="checkbox" name="terms" id="terms">
-                    <span class="checkbox"></span>
-                </label>
-                <span>${getText[84]} <span id="termsLink" data-link="#termsOfUse">${getText[85]}</span>${getText[86]}<span id="privacyLink" data-link="#privacy">${getText[87]}</span>. ${getText[88]}</span>
-                <small class="condition">${getText[89]}</small>
-                <br>  
-                <button id="regBtn">${getText[90]}</button>
-            </div>` : '';
 const finalQ = use_finalQ && !redirection ? `
             <div id="final" class="steps animated zoomIn" style="display: none;">
                 <div id="soi" style="display: none;">
@@ -376,6 +340,5 @@ const allQ = [
     ageQ,
     emailQ,
     thanksQ,
-    regStepQ,
     finalQ,
 ];

@@ -8,7 +8,6 @@ const quiz = `
 
                 ${genderQ}
                 ${ageRangeQ}
-                ${ageRange2Q}
                 ${cityQ}
                 ${relationShipQ}
                 ${eyesColorQ}
@@ -21,7 +20,6 @@ const quiz = `
                 ${redirectStep}
                 ${emailQ}
                 ${thanksQ}
-                ${regStepQ}
                 ${finalQ}
 
                 <div id="stepDots"></div>
