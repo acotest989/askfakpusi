@@ -657,8 +657,9 @@ function validatePhysiqueLook() {
 
 
 function addHeights() {
-   for (let i = 140; i <= 220; i++) {
-      const el = '<option value="' + i + ' cm">' + i + ' cm</option>';
+   for (let i = 140; i <= 220; i+=5) {
+      const i2 = i + 5;
+      const el = '<option value="' + i + '-' +  i2 + ' cm">' + i + '-' +  i2 + ' cm</option>';
       height.append(el);
    }
 }

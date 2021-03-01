@@ -69,8 +69,10 @@ if (LSdata !== null) {
 
         function loadThanks() {
             if (i >= steps.length - 3) {
-                stepBtns.hide();
-                stepDots.hide();
+                if (!redirection) {
+                    stepBtns.hide();
+                    stepDots.hide();
+                 }
             } else {
                 stepBtns.show();
                 stepDots.show();
