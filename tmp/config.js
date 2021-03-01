@@ -16,17 +16,17 @@ const complianceEmail       = 'supp23@';
 
 
 // choose questions to render
-const use_genderQ           = true;
-const use_ageRangeQ         = true;
-const use_cityQ             = true;
-const use_relationShipQ     = true;
-const use_eyesColorQ        = true;
-const use_hairColorQ        = true;
-const use_skinColorQ        = true;
-const use_physiqueLookQ     = true;
-const use_heightQ           = true;
-const use_userPassQ         = true;
-const use_ageQ              = true;
-const use_emailQ            = true;
-const use_thanksQ           = true;
-const use_finalQ            = true;
+use_genderQ           = true;
+use_ageRangeQ         = true;
+use_cityQ             = true;
+use_relationShipQ     = true;
+use_eyesColorQ        = true;
+use_hairColorQ        = true;
+use_skinColorQ        = true;
+use_physiqueLookQ     = true;
+use_heightQ           = true;
+use_userPassQ         = true;
+use_ageQ              = true;
+use_emailQ            = true;
+use_thanksQ           = true;
+use_finalQ            = true;
