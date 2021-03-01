@@ -29,9 +29,7 @@ const reg1 = `
                         <h2><span class="onlineUsers"></span> ${getText[92]}</h2>
                         <h2>${getText[94]}</h2>
                         <br>
-                        <a href="${datingApp}" id="redirectBtn">${getText[95]}</a>
-                        <br>
-                        <br>
+                        <button id="redirectBtn">${getText[95]}</button>
                     </div>
                 </div>
             </div>

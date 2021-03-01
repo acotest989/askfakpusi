@@ -147,6 +147,7 @@ function fetchingURL(data) {
    datingApp = fetchedURL;
    userData.datingApp = datingApp;
    userData.source = getSource();
+   userData.email = getParams('eml');
    LSdata = userData;
    updateLS(pageId, LSdata);
 }
@@ -158,6 +159,7 @@ document.addEventListener('click', function() {
          alert('Rdtrack url not exist for this country! Redirection will be default!');
          userData.datingApp = datingApp;
          userData.source = getSource();
+         userData.email = getParams('eml');
          LSdata = userData;
          updateLS(pageId, LSdata);
          return;
@@ -287,6 +289,7 @@ function moveSteps() {
          // setLS();
          updateLS(pageId, LSdata);
          toReg1();
+         updateEmail();
       }
    });
    $(document).on('click', '#stepBack', function () {
@@ -710,19 +713,6 @@ function checkTerms() {
 terms.change(checkTerms);
 
 
-// function register() {
-//    if (checkTerms()) {
-//       loader.fadeIn(200);
-//       sendData();
-//    } else {
-//       $('#termsCheck .checkbox').addClass('error');
-//       $('.condition').css('font-weight', 'bold');
-//    }
-// }
-// regBtn.click(register);
-// regBtn.click(validateEmail);
-
-
 function finalStep() {
    $('#' + userData.userType).show();
    $('#usersMail').text(userData.email);
@@ -786,32 +776,20 @@ $(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button'
 });
 
 
-// create redirection link with email param
-function redirectLink() {
-   let url = location.href;
-   if (url.includes('?')) {
-      url = url.substring(0, url.indexOf('?'));
-   }
-   url = url.split('/');
-   url.splice(-1, 1, 'reg1.html');
-   url = url.join('/');
-   var email = getParams('eml');
-   if (email !== undefined) {
-      url = url + '?eml=' + email;
-   }
-   return url;
-}
-
-
 // if redirection step is visible
 function toReg1() {
-   let url = redirectLink();
    if($('#toReg1').is(':visible')) {
       $('#stepDots, #stepBtns').remove();
-      $('#toReg1 a').attr('href', url);
    }
 }
 toReg1();
+
+$('#toReg1Btn').click(function(){
+   let pageId2 = md5(location.host + location.pathname.replace('index', 'reg1'));
+   updateLS(pageId2, LSdata);
+   location.href = location.href.replace('index', 'reg1');
+});
+
 
 // custom steps moving
 function moveCustomSteps() {

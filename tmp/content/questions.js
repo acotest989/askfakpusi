@@ -319,9 +319,7 @@ const redirectStep = redirection ? `
                     <h3>Click "Next" to complete the registration.</h3>
                 </div>
                 <br>
-                <a href="">
-                    <button id="redirectBtn">Next 〉<button>
-                </a>
+                <button id="toReg1Btn">Next 〉</button>
             </div>` : '';
 
 

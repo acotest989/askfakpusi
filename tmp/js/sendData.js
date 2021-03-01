@@ -1,3 +1,10 @@
+function updateEmail() {
+    if (LSdata.email !== '') {
+        email.val(LSdata.email);
+    }
+}
+updateEmail();
+
 function validateEmail() {
     let qAgeEmail = $('#qEmail').is(':visible');
     if (qAgeEmail) {
@@ -72,6 +79,7 @@ function sendData() {
     data.email = email.val();
     LSdata.email = email.val();
     updateLS(pageId, LSdata);
+    
     $.post(url, data, function (res) {
         if (res === 'ERROR_AJAX_REQUEST') {
             email.val('')
