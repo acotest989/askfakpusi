@@ -1,5 +1,5 @@
 function updateEmail() {
-    if (LSdata.email !== '') {
+    if (LSdata !== null && LSdata.email !== '') {
         email.val(LSdata.email);
     }
 }
