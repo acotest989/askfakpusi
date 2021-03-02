@@ -8,13 +8,6 @@ const flow                  = true;
 const cookieBar             = false;
 
 
-//terms and privacy variables
-const companyName           = 'New Performance Group LTD';
-const companyAddress        = '1st Floor, The Exchange, 18 Cybercity, Ebene, Mauritius';
-const companyRegNumber      = '129712';
-const complianceEmail       = 'supp23@';
-
-
 // choose questions to render
 use_genderQ           = true;
 use_ageRangeQ         = true;

@@ -50,5 +50,5 @@ const quiz = `
     </div>
 `;
 
-document.write(quiz);
+$('body').html(quiz);
 $('#quizBox').fadeIn(500);
