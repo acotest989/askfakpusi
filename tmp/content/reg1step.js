@@ -41,5 +41,5 @@ const reg1 = `
     </div>
 `;
 
-$('body').html(reg1);
+$('body').append(reg1);
 $('#quizBox').fadeIn(200);
