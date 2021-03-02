@@ -31,12 +31,6 @@ const quiz = `
             </div>
         </div>
     </div>
-
-    <div id="tos" style="display: none;">
-        <div id="closeTos">&times;</div>
-        <iframe src="" id="termsOfUse" style="display: none;"></iframe>
-        <iframe src="" id="privacy" style="display: none;"></iframe>
-    </div>
     
     ${cookieBar ? 
         `<div id="cookieOverlay">

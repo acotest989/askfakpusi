@@ -36,12 +36,6 @@ const reg1 = `
         </div>
     </div>
 
-    <!-- <div id="tos" style="display: none;">
-        <div id="closeTos">&times;</div>
-        <iframe src="/terms" id="termsOfUse" style="display: none;"></iframe>
-        <iframe src="/privacy" id="privacy" style="display: none;"></iframe>
-    </div> -->
-
     <div id="loader">
         <div id="spinner"></div>
     </div>
