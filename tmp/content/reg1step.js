@@ -19,7 +19,11 @@ const reg1 = `
                         <input type="checkbox" name="terms" id="terms">
                         <span class="checkbox"></span>
                     </label>
-                    <span>${getText[84]} <span id="termsLink" data-link="#termsOfUse">${getText[85]}</span>${getText[86]}<span id="privacyLink" data-link="#privacy">${getText[87]}</span>. ${getText[88]}</span>
+                    <p id="tosText">
+                        ${getText[84]} <span id="termsLink" data-link="#termsOfUse">${getText[85]}</span>
+                        ${getText[86]}<span id="privacyLink" data-link="#privacy">${getText[87]}</span>. 
+                        ${getText[88]}
+                    </p>
                     <small class="condition">${getText[89]}</small>
                     <br>  
                     <button id="regBtn">${getText[90]}</button>

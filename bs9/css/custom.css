@@ -1,0 +1,213 @@
+body {
+    background: url('https://askfakpusi.netlify.app/tmp/img/iconsBg.png');
+}
+
+#regQuiz {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: transparent;
+}
+
+.videobgbox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 0ms;
+    object-fit: cover;
+}
+
+.videobgbox:after {
+    content: "";
+    display: block;
+    background: #0006;
+    background-size: 2px 2px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hllwn_png {
+    width: 170px;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    position: relative;
+    display: block;
+    z-index: 2;
+}
+
+#toReg1 h1,
+#regTitle {
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 40%), 0 1px 0 rgb(0 0 0 / 40%), -1px 0 0 rgb(0 0 0 / 40%), 1px 0 0 rgb(0 0 0 / 40%);
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    color: #f979aa;
+    display: table;
+    margin: 20px auto;
+}
+
+
+#quizBox {
+    width: 100%;
+}
+
+
+#toReg1 h3,
+.questionText {
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 40%), 0 1px 0 rgb(0 0 0 / 40%), -1px 0 0 rgb(0 0 0 / 40%), 1px 0 0 rgb(0 0 0 / 40%);
+    text-align: center;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    display: table;
+    margin: 20px auto;
+    color: #fff;
+}
+
+#stepBtns {
+    display: flex;
+    gap: 10px;
+    max-width: 320px;
+    min-width: 300px;
+    width: 100%;
+    margin: auto;
+}
+
+#toReg1Btn,
+#stepBtns button {
+    margin: 0 auto;
+    color: #fff;
+    background-color: #f979aa;
+    background-image: linear-gradient(270deg, #f979aa, #eebb32);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 40%), inset 0 2px 2px hsl(0deg 0% 100% / 20%);
+
+    max-width: 280px;
+    width: 100%;
+    height: 6rem;
+    line-height: 6rem;
+    padding: 0 2rem;
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 0;
+    font-weight: bold;
+    padding: 0;
+}
+
+#toReg1Btn:hover,
+#stepBtns button:hover {
+    background: #ca0e0e;
+    background-image: linear-gradient(270deg, #dc6b96, #cca02d);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
+}
+
+button#stepBack {
+    background-image: linear-gradient(180deg, #000000, #8a425d);
+}
+
+button#stepBack:hover {
+    background: #c050c0;
+    background-image: linear-gradient(180deg, #1d1d1d, #a14b6b);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
+}
+
+select,
+.radio {
+    border-radius: 15px;
+}
+
+#toReg1 {
+    min-width: 300px;
+}
+
+#progressBar {
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
+    bottom: 2rem;
+    width: 90%;
+    max-width: 20rem;
+    height: 0.5rem;
+    border-radius: 5rem;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#progress {
+    width: 0;
+    height: 100%;
+    border-radius: 5rem;
+    background-image: linear-gradient(90deg, #1ee8cc, #19a3e0);
+}
+
+#percentage {
+    display: none;
+}
+
+#quizBox .activemale,
+.radio {
+    background-image: linear-gradient(90deg, #1ee8cc, #19a3e0);
+}
+
+#quizBox .activefemale,
+.checked {
+    background-image: linear-gradient(90deg, #ff2929, #e22b4c);
+    background-image: linear-gradient(90deg, #ff2929, #e22b4c);
+}
+
+
+@media (max-width: 768px) {
+
+    #toReg1Btn,
+    #stepBtns button {
+        height: 4rem;
+        line-height: 2.8;
+    }
+
+    #qGender .questionHolder {
+        margin: 20px auto;
+    }
+
+    #toReg1 h1,
+    #regTitle {
+        font-size: 2rem;
+    }
+
+    .hllwn_png {
+        width: 120px;
+    }
+
+    #regQuiz {
+        top: 70px;
+        transform: translate(-50%, 0);
+    }
+}

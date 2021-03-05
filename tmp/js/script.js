@@ -1,7 +1,7 @@
 let pageId = md5(location.host + location.pathname);
 let userData = {
    userType: userType,
-   question: 'qGender',
+   question: '',
    step: 'step1',
    gender: 'male',
    lookingFor: 'female',
@@ -88,7 +88,7 @@ function getParams(key, url) {
       params = url.split('?').pop();
    }
    if (!params) return;
-   let json = '{"' + params.replace(/&/g, '","').replace(/=/g, '":"') + '"}';
+   let json = '{"' + params.replace(/_&/g, '').replace(/&/g, '","').replace(/=/g, '":"') + '"}';
    let decodedJson = decodeURIComponent(json);
    let obj = JSON.parse(decodedJson);
    return key !== undefined ? obj[key] : obj;
@@ -110,32 +110,32 @@ function getSource() {
 
 const allRdtrak = {
    adult: {
-       HR: 'https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php',
-       CZ: 'https://rdtrak.com/get/7vi9vrzqiybF27zGHKqAmnx4fLxmAw36fK7pqwi85gSu3e4=/portal.php',
-       EE: 'https://rdtrak.com/get/tqbIkD7tgWTalKlj3xPPH3x4fL5STenfsDNRordh6lfcVWU=/portal.php',
-       FI: 'https://rdtrak.com/get/CL0O6FJJaqOX3srIUadJzHx4fJ2Uej6tqsVQWH2yd0BfVSI=/portal.php',
-       GR: 'https://rdtrak.com/get/jx4BbgvigqpoGnKaBpzUQHx4fAkdEtCcJkOG99qX33edHpI=/portal.php',
-       HU: 'https://rdtrak.com/get/yHUKhuDzia3uWAWbHg0wvnx4fJLB41apApTWbRszO7zDzk8=/portal.php',
-       LT: 'https://rdtrak.com/get/lUCfWRLEQsKQSdx6fSKwPnx4fDS8tmwECKMpcPPlekuO1tg=/portal.php',
-       LV: 'https://rdtrak.com/get/QLuIBP72UMyUdMEpnEVOl3x4fM5XEHPrTQQv0oY6ZJBCrqc=/portal.php',
-       PL: 'https://rdtrak.com/get/awxfHdmackgM3rDjIbmgBnx4fLWsFOSKNjxJaL1kPbwmEjk=/portal.php',
-       RO: 'https://rdtrak.com/get/9Wj2jHALMl9pjyvxpFxZ7nx4fKGTFNgNBt1szaagTDtMm74=/portal.php',
-       SK: 'https://rdtrak.com/get/iokc6aZfNuymEWBBlugAUHx4fDef9xeSfA4Xqu40R2yW2JI=/portal.php',
-       RS: 'https://rdtrak.com/get/ZgRgItm2HCVZiDGWLih26Hx4fCMLm2EwZYEIzZjFjXaP818=/portal.php',
-       PT: 'https://rdtrak.com/get/q1SvzIyGhWjrnFnokSFecHx4fImzUseuomtAiYvvoIj5SME=/portal.php',
-       DK: 'https://rdtrak.com/get/QZF7E0IDSbkDCrUqla35K3x4fDqPdJX2GaSIT4XHeMHWS24=/portal.php',
-       NO: 'https://rdtrak.com/get/rt9SuSrhL9tN4E7Kz1IxU3x4fL0kgs22OKXQABuTxt2a6Ag=/portal.php',
-       BG: 'https://rdtrak.com/get/1z3mGBcrWWX0tjLfc9WnYHx4fNlQKGaVAmgWB2Sapt56bUM=/portal.php',
-       SI: 'https://rdtrak.com/get/TLetIY4IF2kzxJE42xwA33x4fDqoPcsuSD1qoB9USRIaWME=/portal.php',
+      HR: 'https://rdtrak.com/get/1zbU9EAOQrAWMPXeA1FJMHx4fM7DcqIFJAHybmal9ldqVq0=/portal.php',
+      CZ: 'https://rdtrak.com/get/7vi9vrzqiybF27zGHKqAmnx4fLxmAw36fK7pqwi85gSu3e4=/portal.php',
+      EE: 'https://rdtrak.com/get/tqbIkD7tgWTalKlj3xPPH3x4fL5STenfsDNRordh6lfcVWU=/portal.php',
+      FI: 'https://rdtrak.com/get/CL0O6FJJaqOX3srIUadJzHx4fJ2Uej6tqsVQWH2yd0BfVSI=/portal.php',
+      GR: 'https://rdtrak.com/get/jx4BbgvigqpoGnKaBpzUQHx4fAkdEtCcJkOG99qX33edHpI=/portal.php',
+      HU: 'https://rdtrak.com/get/yHUKhuDzia3uWAWbHg0wvnx4fJLB41apApTWbRszO7zDzk8=/portal.php',
+      LT: 'https://rdtrak.com/get/lUCfWRLEQsKQSdx6fSKwPnx4fDS8tmwECKMpcPPlekuO1tg=/portal.php',
+      LV: 'https://rdtrak.com/get/QLuIBP72UMyUdMEpnEVOl3x4fM5XEHPrTQQv0oY6ZJBCrqc=/portal.php',
+      PL: 'https://rdtrak.com/get/awxfHdmackgM3rDjIbmgBnx4fLWsFOSKNjxJaL1kPbwmEjk=/portal.php',
+      RO: 'https://rdtrak.com/get/9Wj2jHALMl9pjyvxpFxZ7nx4fKGTFNgNBt1szaagTDtMm74=/portal.php',
+      SK: 'https://rdtrak.com/get/iokc6aZfNuymEWBBlugAUHx4fDef9xeSfA4Xqu40R2yW2JI=/portal.php',
+      RS: 'https://rdtrak.com/get/ZgRgItm2HCVZiDGWLih26Hx4fCMLm2EwZYEIzZjFjXaP818=/portal.php',
+      PT: 'https://rdtrak.com/get/q1SvzIyGhWjrnFnokSFecHx4fImzUseuomtAiYvvoIj5SME=/portal.php',
+      DK: 'https://rdtrak.com/get/QZF7E0IDSbkDCrUqla35K3x4fDqPdJX2GaSIT4XHeMHWS24=/portal.php',
+      NO: 'https://rdtrak.com/get/rt9SuSrhL9tN4E7Kz1IxU3x4fL0kgs22OKXQABuTxt2a6Ag=/portal.php',
+      BG: 'https://rdtrak.com/get/1z3mGBcrWWX0tjLfc9WnYHx4fNlQKGaVAmgWB2Sapt56bUM=/portal.php',
+      SI: 'https://rdtrak.com/get/TLetIY4IF2kzxJE42xwA33x4fDqoPcsuSD1qoB9USRIaWME=/portal.php',
    },
    familySafe: {
-       HR: 'https://rdtrak.com/get/K84M6KSWMy1ro5v5aRMvEXx4fNLnPtZLOrnUavAclZCs8EI=/portal.php',
-       EE: 'https://rdtrak.com/get/aCgmO0FAnJEk07zp6ztOunx4fFx0XD2iJ7F6IJwITCQvJEg=/portal.php',
-       GR: 'https://rdtrak.com/get/woc8eOklxesfJx5LDCjo0Hx4fMGAFcYyCo8qA4LvAsdtXUk=/portal.php',
-       HU: 'https://rdtrak.com/get/mrtpgpdNEa48enljHN8PrHx4fI2IzAu0HRmzqsvsXvad0uY=/portal.php',
-       LT: 'https://rdtrak.com/get/FXBf2t80YZhVhRMpuU4M1Xx4fKVvKWLMoeUQwTZJCBsyRIc=/portal.php',
-       LV: 'https://rdtrak.com/get/pxPgB0Kf6Jtw30Rcv8o9u3x4fJZHOX4Quju4ACdnKtYi0RU=/portal.php',
-       SK: 'https://rdtrak.com/get/rviL5d0Er2cASbAf2MoV0Xx4fNZj3qim7ZQU6Kw0MCxgWzE=/portal.php',
+      HR: 'https://rdtrak.com/get/K84M6KSWMy1ro5v5aRMvEXx4fNLnPtZLOrnUavAclZCs8EI=/portal.php',
+      EE: 'https://rdtrak.com/get/aCgmO0FAnJEk07zp6ztOunx4fFx0XD2iJ7F6IJwITCQvJEg=/portal.php',
+      GR: 'https://rdtrak.com/get/woc8eOklxesfJx5LDCjo0Hx4fMGAFcYyCo8qA4LvAsdtXUk=/portal.php',
+      HU: 'https://rdtrak.com/get/mrtpgpdNEa48enljHN8PrHx4fI2IzAu0HRmzqsvsXvad0uY=/portal.php',
+      LT: 'https://rdtrak.com/get/FXBf2t80YZhVhRMpuU4M1Xx4fKVvKWLMoeUQwTZJCBsyRIc=/portal.php',
+      LV: 'https://rdtrak.com/get/pxPgB0Kf6Jtw30Rcv8o9u3x4fJZHOX4Quju4ACdnKtYi0RU=/portal.php',
+      SK: 'https://rdtrak.com/get/rviL5d0Er2cASbAf2MoV0Xx4fNZj3qim7ZQU6Kw0MCxgWzE=/portal.php',
    }
 }
 
@@ -153,7 +153,7 @@ function fetchingURL(data) {
 }
 
 
-document.addEventListener('click', function() {
+$(document).on('click', function() {
    if (flow && datingApp === 'https://dev.mojtajnisastanak.com' && LSdata === null) {
       if(datingAppFetch === undefined) {
          alert('Rdtrack url not exist for this country! Redirection will be default!');
@@ -214,6 +214,10 @@ function hideTitle() {
 
 
 function showSteps() {
+   if (LSdata === null) {
+      setLS();
+      LSdata = readLS(pageId)
+   }
    steps.hide();
    $(steps[i]).show();
    hideTitle();
@@ -233,7 +237,7 @@ function progressBar() {
    progress.css('transition', '0.5s');
    percentage.text(Math.floor(width) + '%');
    width === 0 ? percentage.css('background', 'transparent') : percentage.css('background', '#62d182');
-   if (width > 99) progress.hide();
+   if (width > 99) $('#progressBar').hide();
 }
 progressBar();
 
@@ -269,6 +273,10 @@ function showElems() {
 
 function moveSteps() {
    $(document).on('click', '#nextStep', function () {
+      if (LSdata === null) {
+         setLS();
+         LSdata = readLS(pageId);
+      }
       if (i < steps.length - 1) {
          pickGender();
          pickAgeRange();
@@ -304,28 +312,26 @@ function moveSteps() {
 moveSteps();
 
 
+$(document).on('click', '#qGender .radio', function () {
+   $(this).siblings().removeClass('checked activemale activefemale');
+   if ($(this).children('input').val() === 'male') {
+      $(this).addClass('checked activemale')
+   } else {
+      $(this).addClass('checked activefemale')
+   }
+   userData.gender = $('input[name=gender]:checked').val();
+   userData.lookingFor = $('input[name=lookingFor]:checked').val();
+   if (LSdata !== null) {
+      LSdata.gender = $('input[name=gender]:checked').val();
+      LSdata.lookingFor = $('input[name=lookingFor]:checked').val();
+   }
+});
 function pickGender() {
    let qGender = $('#qGender').is(':visible');
    if (qGender) {
-      $(document).on('click', '#qGender .radio', function () {
-         $(this).siblings().removeClass('checked activemale activefemale');
-         if ($(this).children('input').val() === 'male') {
-            $(this).addClass('checked activemale')
-         } else {
-            $(this).addClass('checked activefemale')
-         }
-         userData.gender = $('input[name=gender]:checked').val();
-         userData.lookingFor = $('input[name=lookingFor]:checked').val();
-         if (LSdata !== null) {
-            LSdata.gender = $('input[name=gender]:checked').val();
-            LSdata.lookingFor = $('input[name=lookingFor]:checked').val();
-         }
-      });
-      i = 1;
-      return i;
+      return i++;
    }
 }
-pickGender();
 
 
 function pickAgeRange() {

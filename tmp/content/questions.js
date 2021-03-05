@@ -1,4 +1,4 @@
-const genderQ = use_genderQ ? `
+const genderQ = questions.genderQ ? `
             <div id="qGender" class="steps animated zoomIn">
                 <div class="iAm questionHolder">
                     <label for="gender" class="questionText">${getText[5]}</label>
@@ -23,7 +23,7 @@ const genderQ = use_genderQ ? `
                     </label>
                 </div>
             </div>` : '';
-const ageRangeQ = use_ageRangeQ ? `
+const ageRangeQ = questions.ageRangeQ ? `
             <div id="qAgeRange" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label class="questionText" for="">${getText[32]}</label>
@@ -31,7 +31,9 @@ const ageRangeQ = use_ageRangeQ ? `
                     <small class="errorMsg"></small>
                     <label class="questionText">${getText[33]}</label>
                     <div class="selectRange2">
-                        <select id="rangeMin" name="valueMin"></select>
+                        <select id="rangeMin" name="valueMin">
+                            <option value="18" selected>18</option>
+                        </select>
                         <span class="questionText">&</span>
                         <select id="rangeMax" name="valueMax">
                             <option value="45" selected>45</option>
@@ -40,7 +42,7 @@ const ageRangeQ = use_ageRangeQ ? `
                     <br>
                 </div>
             </div>` : '';
-const userPassQ = use_userPassQ && !redirection ? `
+const userPassQ = questions.userPassQ && !redirection ? `
             <div id="qUserPass" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="username" class="questionText">${getText[12]}</label>
@@ -51,7 +53,7 @@ const userPassQ = use_userPassQ && !redirection ? `
                     <input type="password" name="password" id="password" placeholder="${getText[15]}">
                 </div>
             </div>` : '';
-const emailQ = use_emailQ && !redirection ? `          
+const emailQ = questions.emailQ && !redirection ? `          
             <div id="qEmail" class="steps animated zoomIn">
                 <h2 id="usersOnline"><span class="onlineUsers"></span> ${getText[92]}</h2>
                 <h2 id="acceptTerms">${getText[91]}</h2>
@@ -66,12 +68,16 @@ const emailQ = use_emailQ && !redirection ? `
                     <input type="checkbox" name="terms" id="terms">
                     <span class="checkbox"></span>
                 </label>
-                <span>${getText[84]} <span id="termsLink" data-link="#termsOfUse">${getText[85]}</span>${getText[86]}<span id="privacyLink" data-link="#privacy">${getText[87]}</span>. ${getText[88]}</span>
+                <p id="tosText">
+                    ${getText[84]} <span id="termsLink" data-link="#termsOfUse">${getText[85]}</span>
+                    ${getText[86]}<span id="privacyLink" data-link="#privacy">${getText[87]}</span>. 
+                    ${getText[88]}
+                </p>
                 <small class="condition">${getText[89]}</small>
                 <br>  
                 <button id="regBtn">${getText[90]}</button>
             </div>` : '';
-const ageQ = use_ageQ ? `
+const ageQ = questions.ageQ ? `
             <div id="qAge" class="steps animated zoomIn">
                 <div id="qAge" class="questionHolder">
                     <label for="age" class="questionText">${getText[16]}</label>
@@ -80,16 +86,17 @@ const ageQ = use_ageQ ? `
                     </select>
                 </div>
             </div>` : '';
-const cityQ = use_cityQ ? `
+const cityQ = questions.cityQ ? `
             <div id="qCity" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="city" class="questionText">${getText[36]}</label>
+                    <br>
                     <select name="city" id="city">
                         <option value="">${getText[24]}</option>
                     </select>
                 </div>
             </div>` : '';
-const relationShipQ = use_relationShipQ ? `
+const relationShipQ = questions.relationShipQ ? `
             <div id="qRelationShip" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[38]}</label>
@@ -123,7 +130,7 @@ const relationShipQ = use_relationShipQ ? `
                     </div>
                 </div>
             </div>` : '';
-const eyesColorQ = use_eyesColorQ ? `
+const eyesColorQ = questions.eyesColorQ ? `
             <div id="qEyesColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[46]}</label>
@@ -149,7 +156,7 @@ const eyesColorQ = use_eyesColorQ ? `
                     </div>
                 </div>
             </div>` : '';
-const hairColorQ = use_hairColorQ ? `
+const hairColorQ = questions.hairColorQ ? `
             <div id="qHairColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[52]}</label>
@@ -187,7 +194,7 @@ const hairColorQ = use_hairColorQ ? `
                     </div>
                 </div>
             </div>` : '';
-const skinColorQ = use_skinColorQ ? `
+const skinColorQ = questions.skinColorQ ? `
             <div id="qSkinColor" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[61]}</label>
@@ -213,7 +220,7 @@ const skinColorQ = use_skinColorQ ? `
                     </div>
                 </div>
             </div>` : '';
-const physiqueLookQ = use_physiqueLookQ ? `
+const physiqueLookQ = questions.physiqueLookQ ? `
             <div id="qPhysiqueLook" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="" class="questionText">${getText[67]}</label>
@@ -243,7 +250,7 @@ const physiqueLookQ = use_physiqueLookQ ? `
                     </div>
                 </div>
             </div>` : '';
-const heightQ = use_heightQ ? `
+const heightQ = questions.heightQ ? `
             <div id="qHeight" class="steps animated zoomIn">
                 <div class="questionHolder">
                     <label for="height" class="questionText">${getText[74]}</label>
@@ -252,7 +259,7 @@ const heightQ = use_heightQ ? `
                     </select>
                 </div>
             </div>` : '';
-const thanksQ = use_thanksQ && !redirection ? `
+const thanksQ = questions.thanksQ && !redirection ? `
             <div id="thanks" class="steps animated zoomIn" style="display: none;">
                 <h1 id="thanksTitle">${getText[76]}</h1>
                 <img src="https://askfakpusi.netlify.app/tmp/img/thanks.png" alt="">
@@ -268,7 +275,7 @@ const thanksQ = use_thanksQ && !redirection ? `
                 <br>
                 <button id="okBtn">${getText[102]}</button>
             </div>` : '';
-const finalQ = use_finalQ && !redirection ? `
+const finalQ = questions.finalQ && !redirection ? `
             <div id="final" class="steps animated zoomIn" style="display: none;">
                 <div id="soi" style="display: none;">
                     <h2><span class="onlineUsers"></span> ${getText[92]}</h2>
@@ -322,21 +329,23 @@ const redirectStep = redirection ? `
                 <button id="toReg1Btn">Next 〉</button>
             </div>` : '';
 
+questions.redirectStep = redirectStep;
+questions.genderQ = genderQ;
+questions.ageRangeQ = ageRangeQ;
+questions.cityQ = cityQ;
+questions.relationShipQ = relationShipQ;
+questions.eyesColorQ = eyesColorQ;
+questions.hairColorQ = hairColorQ;
+questions.skinColorQ = skinColorQ;
+questions.physiqueLookQ = physiqueLookQ;
+questions.heightQ = heightQ;
+questions.userPassQ = userPassQ;
+questions.ageQ = ageQ;
+questions.emailQ = emailQ;
+questions.thanksQ = thanksQ;
+questions.finalQ = finalQ;
 
-const allQ = [
-    redirectStep,
-    genderQ,
-    ageRangeQ,
-    cityQ,
-    relationShipQ,
-    eyesColorQ,
-    hairColorQ,
-    skinColorQ,
-    physiqueLookQ,
-    heightQ,
-    userPassQ,
-    ageQ,
-    emailQ,
-    thanksQ,
-    finalQ,
-];
+const allQ = [];
+Object.values(questions).forEach(question => {
+    allQ.push(question)
+});

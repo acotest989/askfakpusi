@@ -1,0 +1,207 @@
+body {
+    background: url('https://meefukyy.com/f4e/ms8/br2/images/bg-main.jpg');
+}
+
+#regQuiz {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    background: #fff;
+
+    background: url('https://meefukyy.com/f4e/ms8/br2/images/bg-step.png') no-repeat center center rgba(0, 0, 0, 0.67);
+    background-size: 100% 100%;
+    max-width: 870px;
+    text-align: center;
+    width: 94%;
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+    -o-transition: -o-transform 0.4s ease-in-out;
+    transition: -webkit-transform 0.4s ease-in-out;
+    -o-transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+
+#quizBox {
+    width: 100%;
+    font-size: 26px;
+}
+
+#toReg1 h3,
+.questionText {
+    font: bold 30px Verdana, sans-serif;
+    letter-spacing: -0.25px;
+    letter-spacing: -0.025em;
+    margin-bottom: 1em;
+    text-shadow: 0 2px 0 #000, 0 2px 2px #000, 0 2px 6px #000;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    color: #fff;
+}
+
+#toReg1Btn,
+#stepBtns button,
+#qGender .radio, 
+.radioHolder .radio {
+    background: url('https://meefukyy.com/f4e/ms8/br2/images/bg-btn.png') no-repeat center center transparent;
+    background-size: 100% 100%;
+    color: #000;
+    height: 1.70em;
+    letter-spacing: -0.25px;
+    letter-spacing: -0.025em;
+    line-height: 1.15em;
+    margin: 0;
+    text-align: center;
+    width: 8.90em;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    font: bold 40px Verdana, sans-serif;
+    text-transform: capitalize;
+    margin: auto;
+}
+
+.radioHolder .radio {
+    max-width: 600px;
+    width: 100%;
+}
+
+#qGender .radio,
+.radio span {
+    font: bold 30px Verdana, sans-serif;
+    text-transform: capitalize;
+    color: #000;
+}
+
+#stepBtns button {
+    padding: 0;
+}
+
+#toReg1Btn {
+    background: url('https://meefukyy.com/f4e/ms8/br2/images/bg-btn-primary.png') no-repeat center center transparent;
+    background-size: 100% 100%;
+    color: #000;
+    height: 1.70em;
+    letter-spacing: -0.25px;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-align: center;
+    width: 8.90em;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#stepBtns button:hover,
+#qGender .radio:hover {
+    background: url('https://meefukyy.com/f4e/ms8/br2/images/bg-btn.png') no-repeat center center transparent;
+    background-size: 100% 100%;
+    color: #000;
+    transform: scale(1.05);
+}
+
+#toReg1 h1,
+#regTitle {
+    color: #d93731;
+    font-family: "Arial Black";
+    font-weight: 900;
+}
+
+#toReg1 h1 {
+    color: #ffea00;
+}
+
+.selectRange2 {
+    max-width: 280px;
+}
+
+select {
+    max-width: 300px;
+    font-size: 20px;
+}
+
+#qHeight .questionHolder,
+#qAge .questionHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 3vw;
+    z-index: 5;
+}
+
+.logo {
+    margin: 1vh auto;
+    text-align: center;
+}
+
+.logo img {
+    display: inline-block;
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 100%;
+    width: auto;
+}
+
+#videoElement {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+@media (max-width: 768px) {
+    #toReg1Btn,
+    #stepBtns button {
+        max-width: 200px;
+        font-size: 26px;
+    }
+    #qGender .radio, .radio span {
+        font-size: 20px;
+    }
+
+    #toReg1 h1, #regTitle {
+        font-size: 26px;
+    }
+
+    .radioHolder .radio {
+        height: auto;
+        padding: 10px 0;
+        line-height: 0;
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    #regQuiz {
+        top: 75px;
+        transform: translate(-50%, 0);
+    }
+
+    #qGender .questionHolder {
+        margin: 20px auto;
+    }
+}

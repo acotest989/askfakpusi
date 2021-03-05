@@ -890,7 +890,7 @@ let countries = {
    sv5 : 'SI',
    sb6 : 'RS',
    gr2 : 'GR',
-  cs5 : 'CY',
+   cs5 : 'CY',
    dm5 : 'DE',
    nl2 : 'NL',
    nv7 : 'NO',

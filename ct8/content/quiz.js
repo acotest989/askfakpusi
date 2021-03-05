@@ -6,7 +6,21 @@ const quiz = `
 
             <div class="wrap">
 
-                ${allQ.reduce((a, b) => a + b, '')}
+                ${genderQ}
+                ${ageRangeQ}
+                ${cityQ}
+                ${relationShipQ}
+                ${eyesColorQ}
+                ${hairColorQ}
+                ${skinColorQ}
+                ${physiqueLookQ}
+                ${heightQ}
+                ${userPassQ}
+                ${ageQ}
+                ${redirectStep}
+                ${thanksQ}
+                ${emailQ}
+                ${finalQ}
 
                 <div id="stepDots"></div>
                 <div id="stepBtns">
@@ -17,7 +31,7 @@ const quiz = `
             </div>
         </div>
     </div>
-    
+
     ${cookieBar ? 
         `<div id="cookieOverlay">
             <p>${getText[103]} <br> ${getText[104]}</p>

@@ -1,0 +1,228 @@
+body {
+    background: url('https://devinfo.club/milenko/Chat/425/ps8/bs9/images/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+#regQuiz {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    background: #fff;
+}
+
+#regQuiz {
+    position: relative;
+    max-width: 755px;
+    margin: 0 auto;
+    padding: 10px;
+    background: rgb(17,21,62,.5);
+    border-radius: 10px;
+    left: initial;
+    top: initial;
+    transform: initial;
+}
+
+#quizBox {
+    width: 100%;
+}
+
+#qGender .questionHolder {
+    margin: 20px auto;
+}
+
+#regTitle,
+.questionText {
+    display: block;
+    font-size: 2.3em;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #f3cf56;
+    text-shadow: 2px 2px 0px #dc47d2;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+#toReg1 h1,
+#toReg1 h3 {
+    color: #fff;
+    line-height: 1.2;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#qGender .radio,
+.radio,
+#stepBtns button,
+#toReg1Btn,
+#okBtn, 
+#regBtn, 
+#redirectBtn, 
+#toReg1Btn, 
+#agree, 
+#redirectBtn {
+    background: linear-gradient(to left, #dd53ca, #f5da44);
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto .25em;
+    max-width: 574px;
+    padding: 10px;
+    transition: transform .15s linear;
+    text-shadow: 2px 2px 0px #11153e;
+    color: #fff;
+    text-align: center;
+}
+
+#stepBtns button {
+    display: inline-block;
+}
+
+.selectRange2 {
+    max-width: 200px;
+}
+
+.steps input[type=text], 
+.steps input[type=password], 
+.steps input[type=number], 
+.steps input[type=email], 
+.steps select {
+    border-radius: 15px;
+    max-width: 574px;
+}
+
+#qGender .radio:hover,
+.radio:hover,
+#stepBtns button:hover,
+#okBtn:hover, 
+#regBtn:hover, 
+#redirectBtn:hover, 
+#toReg1Btn:hover, 
+#agree:hover, 
+#redirectBtn:hover {
+    transform: scale(1.1);
+    background: #dd53ca;
+    text-decoration: none;
+}
+
+.errorMsg {
+    background: #fff;
+    padding: 2px 5px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.header {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.logo {
+    padding: 15px 0;
+}
+
+.logo img {
+    display: block;
+    margin: auto;
+    max-height: 50px;
+}
+
+.dot-box {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background: #fff;
+    border-radius: 50%;
+    margin-bottom: 3px;
+}
+
+.video-container {
+    text-align: center;
+}
+
+canvas {
+    max-width: 600px;
+    border: 4px solid #fc46ee;
+}
+
+body.skin2 canvas {
+    border: 4px solid #fdff01;
+}
+
+body.mbl canvas {
+    max-width: 95%;
+    max-height: 250px;
+}
+
+.decoder-video {
+    position: relative;
+    display: inline-block;
+}
+
+.decoder-video img {
+    position: absolute;
+    top: 2px;
+    max-width: 99%;
+    left: .5%;
+}
+
+body.mbl .decoder-video img {
+    top: 3px;
+    max-width: 93%;
+    left: 3.5%;
+}
+
+.decoder-video video {
+    max-width: 600px;
+    display: block;
+    width: 100%;
+    border: 4px solid #fc46ee;
+}
+
+#qEmail h2,
+#qEmail p {
+    color: #fff;
+}
+
+#thanksTitle {
+    color: gold;
+}
+
+#thanks h2,
+#thanks p,
+#final h2 {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {
+    #regTitle {
+        font-size: 22px;
+    }
+    .questionText {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 640px) {}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 360px) {}

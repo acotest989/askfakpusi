@@ -553,6 +553,8 @@ input[type=number] {
 div#terms_container,
 div#privacy_container {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background: #00000050;
@@ -612,4 +614,8 @@ div#privacy_container {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+#tosText {
+    display: inline;
 }
