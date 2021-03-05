@@ -7,19 +7,21 @@ const redirection           = false;
 const flow                  = true;
 const cookieBar             = false;
 
-
-// choose questions to render
-use_genderQ           = true;
-use_ageRangeQ         = true;
-use_cityQ             = true;
-use_relationShipQ     = true;
-use_eyesColorQ        = true;
-use_hairColorQ        = true;
-use_skinColorQ        = true;
-use_physiqueLookQ     = true;
-use_heightQ           = true;
-use_userPassQ         = true;
-use_ageQ              = true;
-use_emailQ            = true;
-use_thanksQ           = true;
-use_finalQ            = true;
+// choose which questions to render and reorder them at your will
+const questions = {
+    genderQ: true,
+    ageRangeQ: true,        
+    cityQ: true,            
+    relationShipQ: true,    
+    eyesColorQ: true,       
+    hairColorQ: true,       
+    skinColorQ: true,       
+    physiqueLookQ: true,    
+    heightQ: true,          
+    userPassQ: true,        
+    ageQ: true,             
+    redirectStep: true,             
+    emailQ: true,           
+    thanksQ: true,          
+    finalQ: true,           
+}

@@ -909,6 +909,7 @@ let countries = {
    ab1 : 'AL',
    mn7 : 'ME',
    md3 : 'MK',
+   bs9 : 'BA',
 };
 let url = location.href.split('/'); 
 let country = url[url.length-2];
