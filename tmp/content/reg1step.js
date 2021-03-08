@@ -40,6 +40,8 @@ const reg1 = `
         </div>
     </div>
 
+    ${contentType === 'familySafe' ? support : ''}
+
     <div id="loader">
         <div id="spinner"></div>
     </div>

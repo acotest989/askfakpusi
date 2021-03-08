@@ -31,6 +31,8 @@ const quiz = `
         </div>
     </div>
 
+    ${contentType === 'familySafe' ? support : ''}
+
     <div id="loader">
         <div id="spinner"></div>
     </div>

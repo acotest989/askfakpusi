@@ -754,20 +754,29 @@ for (let i = 0; i < array.length; i++) {
 }
 
 
+if (contentType === 'familySafe') {
+   $('#progressBar').css('bottom', '19px');
+}
+
+
 // TOS show/hide
-$(document).on('click', '#termsLink, #privacyLink', function (e) {
-   if (e.target.id === 'termsLink') {
+$(document).on('click', '#termsLink, #privacyLink, #termsLink2, #privacyLink2, #supportLink', function (e) {
+   if (e.target.id === 'termsLink' || e.target.id === 'termsLink2') {
       $('body').append(getTermsContent);
       $('#terms_container').css('display', 'flex').hide().fadeIn(300);
    }
-   if (e.target.id === 'privacyLink') {
+   if (e.target.id === 'privacyLink' || e.target.id === 'privacyLink2') {
       $('body').append(getPrivacyContent);
       $('#privacy_container').css('display', 'flex').hide().fadeIn(300);
+   }
+   if (e.target.id === 'supportLink') {
+      $('body').append(getSupportContent);
+      $('#supportModal').css('display', 'flex').hide().fadeIn(300);
    }
    $('.domain').text(datingApp.substring(8));
 });
 
-$(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button', function (e) {
+$(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button, #supportModalClose', function (e) {
    if (e.target.className === 'popup-terms-close-button') {
       $('#terms_container').fadeOut(300);
       setTimeout(() => {
@@ -778,6 +787,12 @@ $(document).on('click', '.popup-terms-close-button, .popup-privacy-close-button'
       $('#privacy_container').fadeOut(300);
       setTimeout(() => {
          $('#privacy_container').remove();
+      }, 500);
+   }
+   if (e.target.id === 'supportModalClose') {
+      $('#supportModal').fadeOut(300);
+      setTimeout(() => {
+         $('#supportModal').remove();
       }, 500);
    }
 });

@@ -650,7 +650,8 @@ div#privacy_container {
 }
 
 .popup-terms-close-button,
-.popup-privacy-close-button {
+.popup-privacy-close-button,
+#supportModalClose {
   position: absolute;
   right: -2px;
   top: -2px;
@@ -673,5 +674,135 @@ div#privacy_container {
 
 #tosText {
   display: inline;
+}
+
+#supportBar {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  font-size: 12px;
+}
+
+#supportBar p {
+  text-align: center;
+}
+
+#supportBar p small {
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#supportBar p small:hover {
+  text-decoration: underline;
+}
+
+#supportBar p small:not(:first-child) {
+  border-left: 2px solid #eee;
+  padding-left: 5px;
+}
+
+#supportModal {
+  background: #00000050;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#supportModal #supportForm {
+  position: relative;
+  max-width: 700px;
+  width: 95%;
+  height: auto;
+  padding: 2rem;
+  background: #fff;
+}
+
+#supportModal #supportForm h2,
+#supportModal #supportForm p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#supportModal #supportForm .inputHolder {
+  padding: 10px;
+}
+
+#supportModal #supportForm label {
+  display: inline-block;
+  width: 200px;
+}
+
+#supportModal #supportForm input,
+#supportModal #supportForm textarea {
+  height: 25px;
+  font-family: inherit;
+  margin: auto;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+}
+
+#supportModal #supportForm input::-webkit-input-placeholder,
+#supportModal #supportForm textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+#supportModal #supportForm input:-ms-input-placeholder,
+#supportModal #supportForm textarea:-ms-input-placeholder {
+  color: #ccc;
+}
+
+#supportModal #supportForm input::-ms-input-placeholder,
+#supportModal #supportForm textarea::-ms-input-placeholder {
+  color: #ccc;
+}
+
+#supportModal #supportForm input::placeholder,
+#supportModal #supportForm textarea::placeholder {
+  color: #ccc;
+}
+
+#supportModal #supportForm textarea {
+  margin-bottom: -7px;
+  max-width: 400px;
+  width: 100%;
+}
+
+#supportModal #supportForm #errMsg {
+  margin-top: 10px;
+}
+
+#supportModal #supportForm #submitSupportForm {
+  display: block;
+  margin: 40px auto 0;
+  padding: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  width: 100px;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-weight: bold;
+  background: #62d182;
+  text-align: center;
+}
+
+#supportModal #supportForm #submitSupportForm:hover {
+  background: #3bc563;
 }
 /*# sourceMappingURL=style.css.map */
