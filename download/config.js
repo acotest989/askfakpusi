@@ -1,15 +1,15 @@
-const userType              = 'soi';
-const contentType           = 'adult'; // familySafe
-const apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
-let datingApp               = 'https://dev.mojtajnisastanak.com';
-let regRoute                = '/reg1';
-const redirection           = true;
-const flow                  = true;
-const cookieBar             = false;
+var userType              = 'soi';
+var contentType           = 'adult'; // familySafe
+var apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
+var datingApp             = 'https://dev.mojtajnisastanak.com';
+var regRoute              = '/reg1';
+var redirection           = true;
+var flow                  = true;
+var cookieBar             = false;
 
 
 // choose which questions to render and reorder them at your will
-const questions = {
+var questions = {
     genderQ: true,
     ageRangeQ: true,        
     cityQ: true,            
