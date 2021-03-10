@@ -1,14 +1,22 @@
-const userType              = 'soi';
-const contentType           = 'familySafe'; // familySafe / adult
-const apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
-let datingApp               = 'https://dev.mojtajnisastanak.com';
-let regRoute                = '/reg1';
-const redirection           = false;
-const flow                  = true;
-const cookieBar             = false;
+var userType              = 'soi';
+var contentType           = 'familySafe'; // adult / familySafe
+var apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
+var datingApp             = 'https://dev.mojtajnisastanak.com';
+var regRoute              = '/reg1';
+var redirection           = false;
+var flow                  = true;
+var cookieBar             = false;
+
+
+// company data - if string is empty, company will be NPG as default
+var companyName           = '';
+var companyAddress        = '';
+var companyRegNumber      = '';
+var complianceEmail       = '';
+
 
 // choose which questions to render and reorder them at your will
-const questions = {
+var questions = {
     genderQ: true,
     ageRangeQ: true,        
     cityQ: true,            
