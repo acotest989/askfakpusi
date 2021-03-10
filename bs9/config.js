@@ -1,5 +1,5 @@
 var userType              = 'soi';
-var contentType           = 'familySafe'; // adult / familySafe
+var contentType           = 'adult'; // adult / familySafe
 var apiKey                = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
 var datingApp             = 'https://dev.mojtajnisastanak.com';
 var regRoute              = '/reg1';
