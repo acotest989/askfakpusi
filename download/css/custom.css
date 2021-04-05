@@ -15,7 +15,12 @@ body {
 
 @media (max-width: 1024px) {}
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    #regQuiz {
+        top: 5%;
+        transform: translate(-50%, -2%);
+    }
+}
 
 @media (max-width: 640px) {}
 
