@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Presells</title>
+    <title>Quiz Template</title>
     <style>
         * {
             font-family: monospace;
             color: steelblue;
-            font-size: 18px;
         }
         ul {
+            font-size: 18px;
             display: flex;
             flex-direction: column;
         }
@@ -25,6 +25,24 @@
             cursor: pointer;
             margin: 10px 30px;
             border-color: #ccc;
+            font-size: 18px;
+        }
+        #tutorial {
+            max-width: 900px;
+            margin: 10px auto;
+            padding: 20px 40px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+        #tutorial li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        #tutorial h3 {
+            font-size: 22px;
         }
     </style>
 </head>
@@ -46,5 +64,42 @@
     <a href="/download.zip" download>
         <button>download ⇩</button>
     </a>
+
+    <div id="tutorial">
+        <h3>Protocol</h3>
+        <ol>
+            <li><strong>Download presell quiz template by clicking download button</strong></li>
+            <li><strong>Export your zip file and rename download folder to name of your country like ct8, bs9...</strong></li>
+            <li><strong>In your folder you will find basic html page with our regular architecture:</strong>
+                <ul>
+                    <li>config.js</li>
+                    <li>index.html & reg1.html</li>
+                    <li>js, css and img folder</li>
+                </ul>
+            </li>
+            <li><strong>config.js is main configuration file where you can setup all parameters about your quiz and reg page:</strong>
+                <ul>
+                    <li>userType: set user type [soi, doi]</li>
+                    <li>contentType: set content type [adult, familySafe]</li>
+                    <li>apiKey: api key (do not change it)</li>
+                    <li>datingApp: default dating app for registration if no flow</li>
+                    <li>regRoute: set registration route [/reg1, /register-user-presell, ...]</li>
+                    <li>googleBtnText: set custom text for google button</li>
+                    <li>redirection: set registration step to be on the same page or redirect to it</li>
+                    <li>flow: set to pick dating app automatic or manual</li>
+                    <li>cookieBar: show cookie bar with popup in footer</li>
+                    <li>storeSteps: storing data in locale storage off/on</li>
+                    <li>giftCredits: set how much credits user gets as gift</li>
+                    <li>companyData: set custom company</li>
+                    <li>questions: pick which questions to show, and reorder them as you need</li>
+                </ul>
+            </li>
+            <li><strong>index.html and reg1.html is where you adding your custom html, but be sure not to change anything which is already there</strong> <br> (index.html for quiz & registration step, reg1.html is just registration step)</li>
+            <li><strong>In js, css and img folders you have files where you can add your custom scripts, css and images<strong></li>
+            <li><strong>Above you have template preview to check template before editing and 3 demo pages after adding custom styling. There you can see what is idea and purpose of this template.</strong></li>
+        </ol>
+        <hr>
+        <small>This is just simple guide, for any additional questions hit Aco M.</small>
+    </div>
 </body>
 </html>
