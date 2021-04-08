@@ -1,3 +1,4 @@
+var cCode               = 'HR';
 var userType            = 'soi';
 var contentType         = 'familySafe'; // adult / familySafe
 var apiKey              = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
@@ -9,7 +10,8 @@ var flow                = true;
 var cookieBar           = false;
 var storeSteps          = true;
 var giftCredits         = null; // in this moment it will be null on frontend, maybe in the future we will give user some value to credit after register
-
+var accId               = ''; // familySafe only
+var accHash             = ''; // familySafe only
 
 // company data - if string is empty, company will be NPG as default
 var companyName         = '';
