@@ -1,0 +1,95 @@
+<IfModule mod_rewrite.c>  
+RewriteEngine on
+Options +FollowSymlinks
+
+RewriteCond %{REQUEST_METHOD} !=POST
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}?_&%{QUERY_STRING} [R,L]
+
+
+#Ove dvije linije treba postaviti za svaku novu drzavu
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^bs9/(.*)$ $1?country=ba [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ab1/(.*)$ $1?country=al [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^br2/(.*)$ $1?country=bg [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ct8/(.*)$ $1?country=hr [QSA,L]
+	
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^mn7/(.*)$ $1?country=me [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^rm4/(.*)$ $1?country=ro [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^sb6/(.*)$ $1?country=sr [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^sv5/(.*)$ $1?country=slo [QSA,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^hg0/(.*)$ $1?country=hu [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ce7/(.*)$ $1?country=cz [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^so5/(.*)$ $1?country=sk [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^pt2/(.*)$ $1?country=pt [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^lt1/(.*)$ $1?country=lt [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^lv2/(.*)$ $1?country=lv [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^cs5/(.*)$ $1?country=cy [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^et3/(.*)$ $1?country=ee [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^fn1/(.*)$ $1?country=fi [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ky4/(.*)$ $1?country=ke [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ng8/(.*)$ $1?country=ng [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^md3/(.*)$ $1?country=mk [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^po4/(.*)$ $1?country=pl [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^gr2/(.*)$ $1?country=gr [QSA,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^it3/(.*)$ $1?country=it [QSA,L]
+
+#Ovaj uslov mora ostati zbog drugih fajlova (js i slicno)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(al|ba|bg|hr|me|ro|slo|sr|hu|cz|sk|pt|lt|lv|cy|ee|fi|ke|ng|mk|pl|gr|it)/(.*)$ $2?country=$1 [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule css/(.*)$ css/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule js/(.*)$ js/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule images/(.*)$ images/$1
+
+</IfModule>

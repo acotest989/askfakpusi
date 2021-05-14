@@ -1,0 +1,29 @@
+body {
+    background: url('https://my-cdn.netlify.app/img/iconsBg.png');
+    /* background: none; */
+}
+
+#regQuiz {
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    background: #fff;
+}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {
+    #regQuiz {
+        top: 5%;
+        transform: translate(-50%, -2%);
+    }
+}
+
+@media (max-width: 640px) {}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 360px) {}

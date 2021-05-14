@@ -1,4 +1,4 @@
-cCode = 'HR'; // if '' => reads cCode from folder name or query string, if 'IP' => reads cCode from IP address, or set manually
+cCode = ''; // if '' => reads cCode from folder name or query string, if 'IP' => reads cCode from IP address, or set manually
 userType = 'soi';
 contentType = 'adult'; // adult || familySafe
 apiKey = 'AB930-9CA333-74474C7-CCED20-4DEC-E13A';
@@ -15,7 +15,7 @@ accId = ''; // familySafe only
 accHash = ''; // familySafe only
 domain = 'domain.test'; // set custom domain name in tos or leave empty for deafault 
 documentTitle = 'random'; // random for random title, set custom title or leave empty for default title
-customTextUrl = 'customText.json'; // define custom text file path
+customTextUrl = ''; // define custom text file path
 
 // company data - if string is empty, company will be NPG as default
 companyName = '';
